@@ -19,6 +19,7 @@ export const CoffeePage = () => {
         <div className="cotent">
           <div className="textBox">
             <h2>It's not just coffee <br />It's <span>RapiCoffee</span></h2>
+            {/* coffe */}
           </div>
         </div>
 
