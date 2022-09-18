@@ -1,11 +1,18 @@
+import { useEffect } from 'react';
 import { FiLogIn } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { InputData } from '../components';
+import { Error } from '../components/Error';
 import { useFormLogin } from '../hooks';
 
 export const Login = () => {
+  const navigate = useNavigate();
+  const { email, password, message, nameData, handleChangeDatas, handleLogin } = useFormLogin();
 
-  const { name, password, nameData, onClickCoffee, handleChangeDatas } = useFormLogin();
+  useEffect(() => {
+    const user = localStorage.getItem('user')
+    user && navigate('coffee')
+  }, [])
 
   return (
     <>
@@ -13,7 +20,7 @@ export const Login = () => {
         <div className="login__data">
           <form
             className="login__form"
-            onSubmit={onClickCoffee}
+            onSubmit={handleLogin}
           >
 
             <div className="login__img">
@@ -21,6 +28,9 @@ export const Login = () => {
             </div>
 
             <h1 className="login__titulo">Login</h1>
+
+            <Error aviso={message} />
+
             {nameData.map(item => (
               <InputData
                 key={item.id}
@@ -39,7 +49,7 @@ export const Login = () => {
                   className='login__inputSubmit'
                   type="submit"
                   value="Login"
-                  onClick={onClickCoffee}
+                  onClick={handleLogin}
                 />
               </div>
             </div>

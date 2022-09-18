@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { FiKey, FiUser } from 'react-icons/fi';
 import { useNavigate } from "react-router-dom";
-import { datos } from "../components/controller/getUser";
+import { datos } from '../controller/getUser';
 
 export const useFormLogin = () => {
     const navigate = useNavigate();
+    
+    const [email, setEmail] = useState('')
     const [password, setPasword] = useState('')
-    const [name, setName] = useState('')
+    const [message, setMessage] = useState("")
 
     const nameData = [
         { id: 2, name: "Email", icon: <FiUser />, type: 'text' },
@@ -15,28 +17,36 @@ export const useFormLogin = () => {
 
     const handleChangeDatas = ({ name, value }) => {
         (name === 'Email')
-            ? setName(value)
+            ? setEmail(value)
             : setPasword(value)
     }
 
-    const onClickCoffee = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const { token, response } = await datos(name, password)
-
-
-        // console.log(response.status)
-        await (response.status === 200)
-            ? navigate('coffee', {
-                replace: false,
-            })
-            : console.log('hola')
-    }
+        try {
+          const users = await datos({
+            email,
+            password,
+          })
+    
+          if (users.token) {
+            navigate('coffee')
+          }
+          localStorage.setItem('user', JSON.stringify(users.token))
+        } catch (e) {
+          setMessage("Error de usuario")
+          setTimeout(() => {
+            setMessage("")
+          }, 3000);
+        }
+      }
 
     return {
-        password,
-        name,
         nameData,
-        onClickCoffee,
+        password,
+        email,
+        message,
         handleChangeDatas,
+        handleLogin,
     }
 }

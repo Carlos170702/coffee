@@ -2,10 +2,10 @@ import { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { FiKey, FiUser } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { Error } from "../components/Error";
+import register from '../controller/getUser'
 
 export const useFormRegister = () => {
-
-  const navigate = useNavigate();
 
   const nameData = [
     { id: 2, name: "Name", icon: <FiUser />, type: `Text` },
@@ -36,12 +36,9 @@ export const useFormRegister = () => {
     }
   };
 
-  const onClickLogin = () => {
-    !(password ===  '')
-      ? navigate('coffee', {
-        replace: true,
-      })
-      : console.log('hola')
+  const handleRegister = (e) => {
+    e.preventDefault();
+    register.data()
   }
 
   return {
@@ -50,6 +47,6 @@ export const useFormRegister = () => {
     email,
     nameData,
     handleChangeDatas,
-    onClickLogin,
+    handleRegister,
   };
 };

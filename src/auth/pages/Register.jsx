@@ -6,7 +6,7 @@ import { useFormRegister } from '../hooks';
 
 export const Register = () => {
 
-  const { email, name, password, handleChangeDatas, onClickLogin, nameData } = useFormRegister();
+  const { email, name, password, handleChangeDatas, handleRegister, nameData } = useFormRegister();
 
   return (
     <>
@@ -42,7 +42,7 @@ export const Register = () => {
                   className='login__inputSubmit'
                   type="submit"
                   value="Register"
-                  onClick={ onClickLogin }
+                  onClick={ handleRegister }
                 />
               </div>
             </div>
