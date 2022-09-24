@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Login, Register } from '../auth/pages'
-import { CoffeeRouter } from '../coffe/page/CoffeeRouter'
+import { CoffeeRouter } from '../coffe/router/CoffeeRouter'
 import { PrivateRouter } from './PrivateRouter'
 import { PublicRouter } from './PublicRouter'
 

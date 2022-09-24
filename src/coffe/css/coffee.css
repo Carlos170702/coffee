@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&family=Josefin+Sans:wght@700&family=Lobster&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.coffee {
+  width: min(80%, 1200px);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coffee__nav {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coffee__Logo {
+  font-family: 'Lobster', cursive;
+  color: white;
+  font-size: 50px;
+  text-decoration: none;
+}
+
+.coffee__links {
+  position: relative;
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.coffee__list {
+  list-style: none;
+}
+
+.coffee__link {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.coffee__cotent{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.coffee__prase{
+  font-size: 40px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+}
+
+.coffee__prase span{
+  font-family: 'Dangrek', cursive;
+}

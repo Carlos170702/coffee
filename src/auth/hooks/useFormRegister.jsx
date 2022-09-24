@@ -1,34 +1,29 @@
 import { useState } from "react";
-import { AiOutlineMail } from "react-icons/ai";
-import { FiKey, FiUser } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { Error } from "../components/Error";
-import register from '../controller/getUser'
+import register, { datos } from '../controller/getUser'
 
 export const useFormRegister = () => {
-
-  const nameData = [
-    { id: 2, name: "Name", icon: <FiUser />, type: `Text` },
-    { id: 3, name: "Email", icon: <AiOutlineMail />, type: `Email` },
-    { id: 1, name: "Password", icon: <FiKey />, type: `Password` },
-  ];
+  const navigate = useNavigate();
 
   const [password, setPasword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [login, setLogin] = useState(false);
+  const [message, setMessage] = useState("")
 
-  const handleChangeDatas = ({ name, value }) => {
-    switch (name) {
-      case "Name":
-        setName(value);
+
+  const handleChangeDatas = (e) => {
+    switch (e.target.name) {
+      case "name":
+        setName(e.target.value);
         break;
 
-      case "Email":
-        setEmail(value);
+      case "email":
+        setEmail(e.target.value);
         break;
 
-      case "Password":
-        setPasword(value);
+      case "password":
+        setPasword(e.target.value);
         break;
 
       default:
@@ -36,16 +31,46 @@ export const useFormRegister = () => {
     }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    register.data()
+    setLogin(true)
+    try {
+      const { status } = await register.registered({ name, password, email, rol: "client" })
+
+      if (status) {
+        const { token } = await datos({
+          email,
+          password,
+        })
+        if (token) {
+          localStorage.setItem('user', JSON.stringify(token))
+          navigate('coffee')
+        }
+      }
+    } catch (error) {
+      setTimeout(() => {
+        setMessage(error.response.data.err.errors[0].msg)
+        setLogin(false)
+        setName("")
+        setEmail("")
+        setPasword("")
+      }, 3000);
+    }
   }
 
+  // } else {
+  //   setTimeout(() => {
+
+  //     setLogin(false)
+  //   }, 3000);
+
+
   return {
+    login,
+    message,
     password,
     name,
     email,
-    nameData,
     handleChangeDatas,
     handleRegister,
   };

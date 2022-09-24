@@ -1,52 +1,53 @@
 import { useState } from "react";
-import { FiKey, FiUser } from 'react-icons/fi';
 import { useNavigate } from "react-router-dom";
 import { datos } from '../controller/getUser';
 
 export const useFormLogin = () => {
-    const navigate = useNavigate();
-    
-    const [email, setEmail] = useState('')
-    const [password, setPasword] = useState('')
-    const [message, setMessage] = useState("")
+  const navigate = useNavigate();
 
-    const nameData = [
-        { id: 2, name: "Email", icon: <FiUser />, type: 'text' },
-        { id: 1, name: "Password", icon: <FiKey />, type: 'password' },
-    ]
+  const [email, setEmail] = useState('')
+  const [password, setPasword] = useState('')
+  const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
 
-    const handleChangeDatas = ({ name, value }) => {
-        (name === 'Email')
-            ? setEmail(value)
-            : setPasword(value)
-    }
+  const handleChangeDatas = (e) => {
+    (e.target.name === 'email')
+      ? setEmail(e.target.value)
+      : setPasword(e.target.value)
+  }
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        try {
-          const users = await datos({
-            email,
-            password,
-          })
-    
-          if (users.token) {
-            navigate('coffee')
-          }
-          localStorage.setItem('user', JSON.stringify(users.token))
-        } catch (e) {
-          setMessage("Error de usuario")
-          setTimeout(() => {
-            setMessage("")
-          }, 3000);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setLoading(true)
+
+    setTimeout(async () => {
+      setLoading(false)
+      try {
+        const { token } = await datos({
+          email,
+          password,
+        })
+        if (token) {
+          localStorage.setItem('user', JSON.stringify(token))
+          navigate('coffee')
         }
+      } catch (e) {
+        setEmail('')
+        setPasword('')
+        setMessage(e.response.data?.msg === undefined ? e.response.data?.err.errors[0].msg : e.response.data?.msg)
+        setTimeout(() => {
+          setMessage()
+        }, 3000);
       }
+    }, 3000);
+  }
 
-    return {
-        nameData,
-        password,
-        email,
-        message,
-        handleChangeDatas,
-        handleLogin,
-    }
+  return {
+    loading,
+    password,
+    email,
+    message,
+    handleChangeDatas,
+    handleLogin,
+  }
 }
