@@ -12,7 +12,7 @@
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -25,9 +25,18 @@
   align-items: center;
 }
 
+.coffee__link {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 20px;
+}
+
 .coffee__Logo {
   font-family: 'Lobster', cursive;
-  color: white;
+  color: rgb(251, 237, 206);
   font-size: 50px;
   text-decoration: none;
 }
@@ -39,24 +48,11 @@
   list-style: none;
 }
 
-.coffee__list {
-  list-style: none;
-}
-
-.coffee__link {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 400;
-  cursor: pointer;
-  font-size: 15px;
-}
-
 .coffee__cotent{
-  width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .coffee__prase{
@@ -67,4 +63,42 @@
 
 .coffee__prase span{
   font-family: 'Dangrek', cursive;
+}
+
+.btn{
+  background-color: transparent;
+  padding: 10px 0;
+  color: rgb(230, 240, 205);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.coffee__imgIni{
+  width: 300px;
+  height: 450px;
+  background-color: white;
+  border-radius: 20px;
+  background-image: url("https://tse4.mm.bing.net/th?id=OIP.4a4flzHv9AQKe94lO-hFxQHaLH&pid=Api&P=0") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 850px){
+    .coffee{
+      flex-direction: column-reverse;
+      margin-top: 20px;
+    }
+
+    body{
+      overflow-x: hidden;
+    }
+
+    .coffee__imgIni{
+      width: 80%;
+    }
 }

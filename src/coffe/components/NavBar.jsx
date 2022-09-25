@@ -9,10 +9,10 @@ export const NavBar = () => {
                     <span className='coffee__Logo'>RappiCoffee</span>
                 </Link>
                 <ul className="coffee__links">
-                    <li><Link className="coffee__link" to={"/"}>Home</Link></li>
-                    <li><Link className="coffee__link" to={"/"}>Menu</Link></li>
+                    <Link className="coffee__link" to={"/Menu"}>Menu</Link>
+                    <Link className="coffee__link" to={"profile"}>Profile</Link>
                 </ul>
             </nav>
-        </>
-    )
+        </>33333333333333333
+    )♥333
 }
