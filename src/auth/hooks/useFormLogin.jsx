@@ -18,10 +18,7 @@ export const useFormLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setLoading(true)
-
     setTimeout(async () => {
-      setLoading(false)
       try {
         const { token } = await datos({
           email,
@@ -39,7 +36,7 @@ export const useFormLogin = () => {
           setMessage()
         }, 3000);
       }
-    }, 3000);
+    }, 100);
   }
 
   return {

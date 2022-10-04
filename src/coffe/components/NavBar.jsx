@@ -13,6 +13,6 @@ export const NavBar = () => {
                     <Link className="coffee__link" to={"profile"}>Profile</Link>
                 </ul>
             </nav>
-        </>33333333333333333
-    )♥333
+        </> 
+    )
 }
