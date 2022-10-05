@@ -7,6 +7,17 @@
   font-family: "Poppins", sans-serif;
 }
 
+.coffees__coffee{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: min(95%, 1200px);
+  margin: 0 auto;
+  padding: 30px;
+}
+
 .coffee {
   width: min(80%, 1200px);
   margin: 0 auto;

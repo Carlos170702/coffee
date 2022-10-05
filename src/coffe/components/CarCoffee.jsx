@@ -5,8 +5,8 @@ export const CarCoffee = ({ products }) => {
   const [stock, setStock] = useState(products.stock)
   const [carAdded, seTcarAdded] = useState({})
 
-  const handleAdd = (e) => {
-    seTcarAdded()
+  const handleAdd = () => {
+
   }
 
   return (
