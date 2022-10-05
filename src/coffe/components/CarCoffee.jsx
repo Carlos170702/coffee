@@ -1,13 +1,8 @@
-import { useState } from 'react'
+import {  useState } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import './carCoffee.css'
-export const CarCoffee = ({ products }) => {
+export const CarCoffee = ({ products, onclickAdd }) => {
   const [stock, setStock] = useState(products.stock)
-  const [carAdded, seTcarAdded] = useState({})
-
-  const handleAdd = () => {
-
-  }
 
   return (
     <>
@@ -34,7 +29,10 @@ export const CarCoffee = ({ products }) => {
           <button
             className={`prosuctAdd ${products.stock <= 0
               && 'productEmpty'}`}
-            onClick={handleAdd}
+            onClick={products.stock > 0
+              ? onclickAdd
+              : () => console.log()}
+            name={products._id}
           >
             Agregar al carrito
             <FiShoppingCart className='productIconCar' />

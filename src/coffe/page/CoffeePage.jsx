@@ -5,6 +5,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 export const CoffeePage = () => {
   const { handleMenu } = useCoffee();
+
   return (
     <>
       <NavBar />

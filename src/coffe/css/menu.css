@@ -1,17 +1,51 @@
-.titulo{
+.containercoffees {
+    height: 100%;
+    position: relative;
+}
+
+.titulo {
     font-size: 30px;
     width: 100%;
     text-align: center;
 }
 
-.cards{
+.cards {
     width: 90%;
     margin: 0 auto;
     display: flex;
 }
 
-.card{
+.card {
     width: 300px;
     height: 200px;
-    background-color: red;
+    background-color: black;
+}
+
+.dataCar {
+    position: absolute;
+    background: #AC8157;
+    padding: 18px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 30px;
+    right: 20px;
+}
+
+.iconCar {
+    color: white;
+    font-size: 25px;
+}
+
+.iconCount {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    color: red;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
 }
