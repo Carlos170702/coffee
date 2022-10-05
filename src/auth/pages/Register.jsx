@@ -2,8 +2,7 @@ import { FiLogIn, FiKey, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useFormRegister } from '../hooks';
 import { AiOutlineMail } from "react-icons/ai";
-import { Loading } from '../components/loading';
-import { Error } from '../components/Error';
+import { Loading, Error } from '../components'
 
 export const Register = () => {
   const { email, name, password, login, message, handleChangeDatas, handleRegister } = useFormRegister();
@@ -20,7 +19,7 @@ export const Register = () => {
 
             <h1 className="login__titulo">Register</h1>
             <Error aviso={message} />
-            { login && <Loading /> }
+            {login && <Loading />}
             <div className="login__inputBox">
               <div className="login__box">
                 <div className="login_icon"><FiUser /></div>

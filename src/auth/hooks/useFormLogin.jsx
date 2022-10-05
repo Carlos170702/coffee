@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { datos } from '../controller/getUser';
+import { datos } from '../controller'
 
 export const useFormLogin = () => {
   const navigate = useNavigate();

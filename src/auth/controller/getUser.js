@@ -8,12 +8,10 @@ export const datos = async (datos) => {
   return data;
 };
 
-const registered = async (datos) => {
+export const registered = async (datos) => {
   const data = await axios.post(
     "https://restserver-devjose.herokuapp.com/api/users/postuser",
     datos
   );
   return data;
 };
-
-export default { registered };

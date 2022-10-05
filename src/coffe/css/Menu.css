@@ -1,0 +1,15 @@
+.containercoffees{
+    width: 100%;
+    height: 100%;
+}
+
+.coffees__coffee{
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}

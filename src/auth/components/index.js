@@ -1,1 +1,2 @@
-export * from './InputData'
+export * from './Error'
+export * from './Loading'

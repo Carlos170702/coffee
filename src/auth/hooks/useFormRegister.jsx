@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import register, { datos } from '../controller/getUser'
+import { datos, registered } from '../controller'
 
 export const useFormRegister = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const useFormRegister = () => {
     e.preventDefault();
     setLogin(true)
     try {
-      const { status } = await register.registered({ name, password, email, rol: "client" })
+      const { status } = await registered({ name, password, email, rol: "client" })
 
       if (status) {
         const { token } = await datos({

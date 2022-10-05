@@ -1,6 +1,6 @@
-import { NavBar } from '../components/navBar'
+import { NavBar } from '../components'
 import '../css/coffee.css'
-import { useCoffee } from '../hooks/useCoffee'
+import { useCoffee } from '../hooks'
 import { FiArrowRight } from "react-icons/fi";
 
 export const CoffeePage = () => {
@@ -16,11 +16,11 @@ export const CoffeePage = () => {
               It's <span>RapiCoffee</span></h2>
           </div>
           <button
-            className='btn'
+            className='btn btn--chooseCOfffee'
             type='submit'
             onClick={handleMenu}
           >
-            Choose coffee <FiArrowRight />
+            Choose coffee <FiArrowRight className='coffee__ArrowChoose' />
           </button>
         </div>
         <div className='coffee__imgIni'>

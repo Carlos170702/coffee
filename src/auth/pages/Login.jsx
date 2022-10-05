@@ -1,8 +1,7 @@
 import { FiKey } from 'react-icons/fi';
 import { FiLogIn } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { Error } from '../components/Error';
-import { Loading } from '../components/loading';
+import { Error, Loading } from '../components';
 import { useFormLogin } from '../hooks';
 
 export const Login = () => {

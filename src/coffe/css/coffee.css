@@ -27,11 +27,17 @@
 
 .coffee__link {
   display: inline-block;
-  color: #fff;
+  color: #d4e9e2;
   text-decoration: none;
   font-weight: 400;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.coffee__link:hover{
+  border-bottom: 1px solid #006f44;
+  transition: 1s;
+  transform: scale(1.1);
 }
 
 .coffee__Logo {
@@ -59,22 +65,40 @@
   font-size: 40px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
+  color: rgb(206, 203, 203);
 }
 
 .coffee__prase span{
   font-family: 'Dangrek', cursive;
+  color: white;
 }
 
 .btn{
   background-color: transparent;
-  padding: 10px 0;
   color: rgb(230, 240, 205);
-  font-size: 15px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   border: none;
+}
+
+.btn--chooseCOfffee{
+  padding: 10px 5px;
+  width: 130px;
+  border-radius: 15px;
+  background-color: rgb(0, 111, 68);
+}
+
+.btn--chooseCOfffee:hover{
+  transition: all .8s;
+  transform: scale(1.1);
+  background-color: #198159;
+}
+
+.coffee__ArrowChoose{
+  font-size: 15px;
 }
 
 .coffee__imgIni{
@@ -90,15 +114,34 @@
 
 @media (max-width: 850px){
     .coffee{
-      flex-direction: column-reverse;
-      margin-top: 20px;
+      width: 90%;
     }
 
+    .coffee__prase{
+      font-size: 25px;
+    }
+    
     body{
       overflow-x: hidden;
     }
+  }
+  
+  @media (max-width: 600px){
+    .coffee{
+      flex-direction: column-reverse;
+    }
+    
+    .coffee__prase{
+    font-size: 40px;
+  } 
 
+  .coffee__imgIni{
+    width: 400px;
+  }
+}
+
+@media (min-width: 1000px){
     .coffee__imgIni{
-      width: 80%;
+      width: 400px;
     }
 }
