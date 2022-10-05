@@ -4,7 +4,7 @@ export const useCoffee = () => {
   const navigate = useNavigate();
 
   const handleMenu = () => {
-    navigate("/Menu", { replace: true});
+    navigate("/Menu", { replace: true });
   };
 
   return {

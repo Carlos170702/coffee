@@ -13,6 +13,10 @@ export const NavBar = () => {
                     <Link className="coffee__link" to={"profile"}>Profile</Link>
                 </ul>
             </nav>
+<<<<<<< HEAD
         </>
+=======
+        </> 
+>>>>>>> a65fa3054abdc6300063dc2ecd583d04d191d23d
     )
 }
