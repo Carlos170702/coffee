@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react"
-import { CarCoffee, NavBar } from "../components"
-import { getProducts } from "../controller/GetProduct"
+import { NavBar } from "../components"
+import { getCategory } from "../controller/GetProduct"
 import { FiShoppingCart } from 'react-icons/fi'
 
 import '../css/Menu.css'
+import { Menu } from "./Menu"
 
 export const MenuPage = () => {
-  const [products, setProducts] = useState([])
+  const [category, setCategory] = useState([])
   const [carAdded, setCarAdded] = useState([])
 
   useEffect(() => {
     (async () => {
-      setProducts((await getProducts()))
+      setCategory(await getCategory())
     })()
   }, [])
-
 
   const handleAdd = (e) => {
     const newProduct = e.target.name;
@@ -22,15 +22,15 @@ export const MenuPage = () => {
     temp.push(newProduct);
     setCarAdded(temp);
   }
-
+  
   return (
     <>
       <div className="containercoffees">
         <NavBar />
         <section className="coffees__coffee">
           {
-            products.map(item => (
-              <CarCoffee key={item._id} products={item} onclickAdd={handleAdd} />
+            category.map(item => (
+              <h1 key={item._id} >{item.name}</h1>
             ))
           }
         </section>

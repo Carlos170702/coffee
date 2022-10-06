@@ -1,9 +1,17 @@
-import { getProduct } from "./product";
+import { Product } from "./product";
 
-export const getProducts = async() => {
-  const data = await getProduct({
+export const getProducts = async () => {
+  const data = await Product({
     method: "GET",
     url: "https://restserver-devjose.herokuapp.com/api/products/getproducts",
   });
-  return data
+  return data.products
+};
+
+export const getCategory = async () => {
+  const data = await Product({
+    method: "GET",
+    url: "https://restserver-devjose.herokuapp.com/api/categorys/getCategorys",
+  });
+  return data.categorys
 };

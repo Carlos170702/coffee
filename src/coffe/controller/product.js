@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getProduct = async (options) => {
+export const Product = async (options) => {
   const { data } = await axios.request(options);
 
-  return data.products;
+  return data;
 };

@@ -12,16 +12,16 @@ export const CoffeePage = () => {
       <section className="coffee">
         <div className="coffee__cotent">
           <div className="textBox">
-            <h2 className="coffee__prase">It's not just coffee
+            <h2 className="coffee__prase">Esto no es cafe,
               <br />
-              It's <span>RapiCoffee</span></h2>
+              esto es <span>RapiCoffee</span></h2>
           </div>
           <button
             className='btn btn--chooseCOfffee'
             type='submit'
             onClick={handleMenu}
           >
-            Choose coffee <FiArrowRight className='coffee__ArrowChoose' />
+            Elegir cafe <FiArrowRight className='coffee__ArrowChoose' />
           </button>
         </div>
         <div className='coffee__imgIni'>

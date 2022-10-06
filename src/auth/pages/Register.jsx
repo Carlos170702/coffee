@@ -17,7 +17,7 @@ export const Register = () => {
               <img src="https://static.vecteezy.com/system/resources/previews/000/585/220/non_2x/coffee-cup-logo-template-vector-icon-design.jpg" alt="imagen de cafe" />
             </div>
 
-            <h1 className="login__titulo">Register</h1>
+            <h1 className="login__titulo">Regitrarse</h1>
             <Error aviso={message} />
             {login && <Loading />}
             <div className="login__inputBox">
@@ -32,7 +32,7 @@ export const Register = () => {
                     required="required"
                     value={name}
                   />
-                  <p className='login__type '>name</p>
+                  <p className='login__type '>Nombre</p>
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@ export const Register = () => {
                     required="required"
                     value={email}
                   />
-                  <p className='login__type '>Email</p>
+                  <p className='login__type '>Correo</p>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ export const Register = () => {
                     required="required"
                     value={password}
                   />
-                  <p className='login__type '>Password</p>
+                  <p className='login__type '>Contraseña</p>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export const Register = () => {
               <input
                 className='login__checkbox'
                 type="checkbox"
-              />Remember me
+              />Recordarme
             </label>
 
             <div className="login__inputBox">
@@ -84,15 +84,15 @@ export const Register = () => {
                 <input
                   className='login__inputSubmit'
                   type="submit"
-                  value="Register"
+                  value="Registrarse"
                   onClick={handleRegister}
                 />
               </div>
             </div>
 
             <div className='login__logRegis'>
-              <p>Already have an account? </p>
-              <Link to="/login" className="login__forgot">Login</Link>
+              <p>ya tienes una cuenta? </p>
+              <Link to="/login" className="login__forgot">Iniciar seccion</Link>
             </div>
 
           </form>

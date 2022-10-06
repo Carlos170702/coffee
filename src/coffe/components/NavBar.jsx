@@ -10,7 +10,7 @@ export const NavBar = () => {
                 </Link>
                 <ul className="coffee__links">
                     <Link className="coffee__link" to={"/Menu"}>Menu</Link>
-                    <Link className="coffee__link" to={"profile"}>Profile</Link>
+                    <Link className="coffee__link" to={"profile"}>perfil</Link>
                 </ul>
             </nav>
         </>

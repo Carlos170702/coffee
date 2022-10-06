@@ -17,7 +17,7 @@ export const Login = () => {
               <img src="https://static.vecteezy.com/system/resources/previews/000/585/220/non_2x/coffee-cup-logo-template-vector-icon-design.jpg" alt="imagen de cafe" />
             </div>
 
-            <h1 className="login__titulo">Login</h1>
+            <h1 className="login__titulo">Iniciar sesion</h1>
             <Error aviso={message} />
             <div className="login__inputBox">
               <div className="login__box">
@@ -31,7 +31,7 @@ export const Login = () => {
                     required="required"
                     value={email}
                   />
-                  <p className='login__type '>Email</p>
+                  <p className='login__type '>Correo</p>
                 </div>
               </div>
             </div>
@@ -48,13 +48,13 @@ export const Login = () => {
                     required="required"
                     value={password}
                   />
-                  <p className='login__type '>password</p>
+                  <p className='login__type '>Contraseña</p>
                 </div>
               </div>
             </div>
 
             <label className="login__Remember">
-              <input className='login__checkbox' type="checkbox" />Remember me
+              <input className='login__checkbox' type="checkbox" />Recordarme
             </label>
 
             <div className="login__inputBox">
@@ -63,15 +63,15 @@ export const Login = () => {
                 <input
                   className='login__inputSubmit'
                   type="submit"
-                  value="Login"
+                  value="Iniciar"
                   onClick={handleLogin}
                 />
               </div>
             </div>
 
             <div className='login__logRegis'>
-              <p>don't have an account? </p>
-              <Link to="/register" className="login__forgot">Register</Link>
+              <p>No tienes una cuenta? </p>
+              <Link to="/register" className="login__forgot">Registrarse</Link>
             </div>
 
           </form>
