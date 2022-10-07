@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react"
-import { NavBar } from "../components"
-import { getCategory } from "../controller/GetProduct"
-import { FiShoppingCart } from 'react-icons/fi'
-
-import '../css/Menu.css'
-import { Menu } from "./Menu"
+import { CarCoffee, NavBar } from "../components"
+import { CarAdded } from "../components/CarAdded"
+import { getProducts } from "../controller/GetProduct"
+import '../css/coffee.css'
 
 export const MenuPage = () => {
-  const [category, setCategory] = useState([])
-  const [carAdded, setCarAdded] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     (async () => {
-      setCategory(await getCategory())
+      setProducts((await getProducts()))
     })()
   }, [])
+
 
   const handleAdd = (e) => {
     const newProduct = e.target.name;
@@ -22,22 +20,23 @@ export const MenuPage = () => {
     temp.push(newProduct);
     setCarAdded(temp);
   }
-  
+
   return (
     <>
       <div className="containercoffees">
         <NavBar />
         <section className="coffees__coffee">
           {
-            category.map(item => (
-              <h1 key={item._id} >{item.name}</h1>
+            products.map(item => (
+              <CarCoffee
+                onclickAdd={handleAdd}
+                products={item}
+                key={item._id}
+              />
             ))
           }
         </section>
-        <div className="dataCar">
-          <span className="iconCount">{carAdded.length}</span>
-          <FiShoppingCart className="iconCar" />
-        </div>
+        <CarAdded />
       </div>
 
     </>

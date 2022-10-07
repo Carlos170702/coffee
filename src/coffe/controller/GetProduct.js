@@ -7,11 +7,3 @@ export const getProducts = async () => {
   });
   return data.products
 };
-
-export const getCategory = async () => {
-  const data = await Product({
-    method: "GET",
-    url: "https://restserver-devjose.herokuapp.com/api/categorys/getCategorys",
-  });
-  return data.categorys
-};

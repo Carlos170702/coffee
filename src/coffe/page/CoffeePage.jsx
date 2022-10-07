@@ -1,5 +1,5 @@
 import { NavBar } from '../components'
-import '../css/coffee.css'
+import '../css/coffeepage.css'
 import { useCoffee } from '../hooks'
 import { FiArrowRight } from "react-icons/fi";
 

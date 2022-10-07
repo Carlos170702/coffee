@@ -1,0 +1,37 @@
+.coffee__nav {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .coffee__link {
+    display: inline-block;
+    color: #d4e9e2;
+    text-decoration: none;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .coffee__link:hover{
+    border-bottom: 1px solid #006f44;
+    transition: 1s;
+    transform: scale(1.1);
+  }
+  
+  .coffee__Logo {
+    font-family: 'Lobster', cursive;
+    color: rgb(251, 237, 206);
+    font-size: 50px;
+    text-decoration: none;
+  }
+  
+  .coffee__links {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    list-style: none;
+  }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
-import './carCoffee.css'
+import './css/carCoffee.css'
+
 export const CarCoffee = ({ products, onclickAdd }) => {
   const [stock, setStock] = useState(products.stock)
 
@@ -11,13 +12,13 @@ export const CarCoffee = ({ products, onclickAdd }) => {
           <img className='img' src="https://tse3.mm.bing.net/th?id=OIP.6MNwpyE32lWfY41giMbWRAHaFH&pid=Api&P=0" alt="" />
         </div>
 
-        <div className=' '>
+        <div className='productInfo'>
           <h1 className='productName'>{products.name}</h1>
           <p
-            className={`${products.stock > 0
+            className={`${stock > 0
               ? 'verde'
               : 'rojo'} productStock `}
-          >{`${products.stock > 0
+          >{`${stock > 0
             ? 'Disponible:'
             : 'No disponible:'}`}
             <span>{stock}</span>
@@ -27,9 +28,9 @@ export const CarCoffee = ({ products, onclickAdd }) => {
 
         <div className='productCar'>
           <button
-            className={`prosuctAdd ${products.stock <= 0
+            className={`prosuctAdd ${stock <= 0
               && 'productEmpty'}`}
-            onClick={products.stock > 0
+            onClick={stock > 0
               ? onclickAdd
               : () => console.log()}
             name={products._id}
