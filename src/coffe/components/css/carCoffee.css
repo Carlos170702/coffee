@@ -26,80 +26,83 @@
   border-radius: 10px;
 }
 
-.productInfo{
+.productInfo {
   display: flex;
   gap: 10px;
   flex-direction: column;
 }
 
-.productAbout{
+.productAbout {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
 .verde {
-  color: green;
+  color: rgb(0, 111, 68);
 }
 
 .rojo {
-  color: red;
+  color: #F32013;
 }
 
 .productName {
-  font-family: var(--terciary);
+  font-family: 'Lobster', cursive;
+  color: #AC8157;
   font-weight: 700;
   font-size: 25px;
+  text-align: center;
 }
 
 .productStock,
-.productPrice{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-family: var(--secundary);
+.productPrice {
+  display: flex;
+  font-size: 15px;
+  gap: 10px;
+  align-items: center;
+  font-family: var(--secundary);
 }
 
 .productStock span,
-.productPrice span{
-    color: black;
-    font-weight: bold;
-    font-size: 1.1rem;
+.productPrice span {
+  color: black;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.productAddCar{
+.productAddCar {
   width: 100%;
 }
 
-.prosuctAdd{
+.prosuctAdd {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   width: min(90%, 200px);
   margin: 10px auto;
-  padding: 5px;
+  padding: 8px;
   border: none;
   border-radius: 15px;
   color: white;
-  font-family: var( --primary );
+  font-family: var(--primary);
   font-size: 13px;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #c78cf1;
+  background-color: rgb(0, 111, 68);
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.productEmpty{
+.productEmpty {
   cursor: auto;
   background-color: rgb(158, 158, 158);
 }
 
-.prosuctAdd:hover{
+.prosuctAdd:hover {
   text-shadow: 0px 0px 20px rgb(93, 93, 93);
 }
 
-.productIconCar{
+.productIconCar {
   font-size: 20px;
 }
