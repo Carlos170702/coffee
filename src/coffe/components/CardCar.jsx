@@ -11,22 +11,22 @@ export const CardCar = ({ item }) => {
             <div className="carProducts">
                 <div className="carProduct">
                     <div className="carProductImg">
-                        <img src={item.image} alt="" />
+                        <img src={item.value.image} alt="" />
                     </div>
                 </div>
                 <div className="carInfo">
                     <div className="carData">
-                        <h4 className="carName">{item.name}</h4>
-                        <p className="carCategory">categoria: {item.category.name}</p>
+                        <h4 className="carName">{item.value.name}</h4>
+                        <p className="carCategory">categoria: {item.value.category.name}</p>
                     </div>
                     <button
                         className="carButton"
-                        onClick={() => addProduct(item)}
+                        onClick={() => addProduct(item.value)}
                     >
                         Agregar +1
                     </button>
                     <div className='carPrice'>
-                        <span>${item.price}.00</span>
+                        <span>${item.value.price}.00</span>
                     </div>
                 </div>
                 <div

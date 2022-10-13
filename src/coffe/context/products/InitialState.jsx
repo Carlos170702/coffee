@@ -7,7 +7,7 @@ import UserReducer from "./UserReducer.js";
 export const InitialState = ({ children }) => {
   const initialState = {
     products: [],
-    car: [],
+    car: []
   };
 
   const [state, dispatch] = useReducer(UserReducer, initialState);

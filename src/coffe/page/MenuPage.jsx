@@ -13,10 +13,10 @@ export const MenuPage = () => {
 
   // isFetching es para revalidar si los datos que estan en cache ya existen que revalide y obtenga los que afaltan
   const { isError, isLoading, data } = useQuery(['getProducts'], getCoffes, {
-    refetchOnWindowFocus: false, // que cuando l cursor entre a la pagina no aga la consulta
-    cacheTime: 3000, //tiempo que dilatara la cache 
-    retry: 2, //intentos antes de mandar el Error
-    retryDelay: 1000 //tiempo de cada reintento
+    // refetchOnWindowFocus: false, // que cuando l cursor entre a la pagina no aga la consulta
+    // cacheTime: 3000, //tiempo que dilatara la cache 
+    // retry: 2, //intentos antes de mandar el Error
+    // retryDelay: 1000 //tiempo de cada reintento
   })
 
   const handleAdd = (datos) => {

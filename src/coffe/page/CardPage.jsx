@@ -7,15 +7,6 @@ import '../css/carpage.css'
 export const CardPage = () => {
     const { car } = useContext(UserContext)
 
-    const data = () => {
-        const data = car.filter(index => {
-            index._id > 1
-        })
-        console.log(data)
-    }
-
-    data()
-
     return (
         <>
             <NavBar />
