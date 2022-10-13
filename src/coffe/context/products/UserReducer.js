@@ -1,36 +1,32 @@
-import { DELETE_PRODUCT } from "../types";
+import { DELETE_PRODUCT, GET_COFFEES } from "../types";
 import { ADD_PRODUCT } from "../types/";
 
 export default (state, action) => {
   const { payload, type } = action;
 
   switch (type) {
-    case ADD_PRODUCT:
-      
-      const data = [...state.car];
-      console.log(data)
-      data.length > 0
-        ? state.car.map((item) => {
-            item.value._id === payload._id
-              ? console.log('si existe')
-              : (() => {
-                console.log('no existe')
-                data.push({
-                  cantidad: 1,
-                  value: payload,
-                });
-              })()
-          })
-        : data.push({
-            cantidad: 1,
-            value: payload,
-          });
-
+    case GET_COFFEES:
       return {
         ...state,
-        car: data,
-      };
-      
+        products: payload
+      }
+
+    case ADD_PRODUCT:
+      const addeCoffee = state.products.find(item => item._id === payload)
+      const itemExist = state.car.find(item => item._id === addeCoffee._id)
+
+      return itemExist
+        ? {
+          ...state,
+          car: state.car.map(item => item._id === addeCoffee._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item),
+        }
+        : {
+          ...state,
+          car: [...state.car, { ...addeCoffee, quantity: 1 }],
+        };
+
 
     case DELETE_PRODUCT:
       return {

@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { Product } from "../../controller/product";
-import { ADD_PRODUCT, DELETE_PRODUCT } from "../types";
+import { ADD_PRODUCT, DELETE_PRODUCT, GET_COFFEES } from "../types";
 import { UserContext } from "./UserContext";
 import UserReducer from "./UserReducer.js";
 
@@ -17,6 +17,12 @@ export const InitialState = ({ children }) => {
       method: "GET",
       url: "https://restserver-devjose.herokuapp.com/api/products/getproducts",
     });
+
+    dispatch({
+      type: GET_COFFEES,
+      payload: data.products
+    })
+
     return data.products
   };
 
