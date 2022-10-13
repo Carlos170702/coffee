@@ -26,3 +26,18 @@
   font-weight: bold;
   font-family: var();
 }
+
+.carEmpty {
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+}
+
+.carEmpty a {
+  color: white;
+  text-decoration: none;
+  background-color: rgb(0, 111, 68);
+  border-radius: 10px;
+  padding: 15px;
+  font-family: var(--terciary);
+}

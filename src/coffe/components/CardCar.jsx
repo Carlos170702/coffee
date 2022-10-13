@@ -27,8 +27,8 @@ export const CardCar = ({ item }) => {
                         Agregar +1
                     </button>
                     <div className='carPrice'>
-                        <span>${price}.00</span>
-                        <p>{quantity}</p>
+                        <span>${price}.00 x {quantity}</span>
+                        <h5>Total a pagar: ${price * quantity}</h5>
                     </div>
                 </div>
                 <div
