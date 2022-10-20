@@ -57,16 +57,15 @@ export const Login = () => {
               <input className='login__checkbox' type="checkbox" />Recordarme
             </label>
 
-            <div className="login__inputBox">
-              <div className="login__boxSubmit">
-                <div className="login_icon login_icon--btn"><FiLogIn /></div>
-                <input
-                  className='login__inputSubmit'
-                  type="submit"
-                  value="Iniciar"
-                  onClick={handleLogin}
-                />
-              </div>
+            <div className="login__inputBox login__boxSubmit">
+              <button
+                className='login__inputSubmit'
+                type="submit"
+                onClick={handleLogin}
+              >
+                <FiLogIn />
+                iniciar
+              </button>
             </div>
 
             <div className='login__logRegis'>

@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@400;700&family=Source+Code+Pro&display=swap");
+
+:root {
+  --primary: "Inter", sans-serif;
+  --secundary: "Josefin Sans", sans-serif;
+  --terciary: "Source Code Pro", monospace;
+}
+
+.madeSale{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(157, 157, 157, 0.744);
+    top: 0;
+    left: 0;
+    color: black;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.madeSale__Content{
+    width: min(100%, 500px);
+    margin: 0 10px;
+    padding: 5px;
+    height: auto;
+    background-color: #efd1a3;
+    border-radius: 10px;
+}
+
+.madeSale__titulo{
+    color: #6cbf6c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary);
+    font-size: 1.3rem;
+    gap: 10px;
+}
+
+.madeSale__titulo .icon{
+    font-size: 30px;
+    margin: 0;
+    color: #6cbf6c;
+    font-weight: 700;
+}
+
+.InfProduct{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.InfProduct h4{
+    color: black;
+    font-size: 1.3rem;
+    font-family: var(--primary);
+    letter-spacing: .5px;
+    word-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.InfProduct p{
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(130, 130, 130);
+    font-size: 1rem;
+    font-family: var(--secundary);
+}
+
+.InfProduct p span{
+    font-family: var(--secundary);
+    font-size: 1rem;
+    letter-spacing: .5px;
+}

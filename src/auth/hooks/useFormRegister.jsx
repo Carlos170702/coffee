@@ -8,9 +8,8 @@ export const useFormRegister = () => {
   const [password, setPasword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [login, setLogin] = useState(false);
   const [message, setMessage] = useState("")
-
+  const [image, setImage] = useState(null)
 
   const handleChangeDatas = (e) => {
     switch (e.target.name) {
@@ -26,6 +25,10 @@ export const useFormRegister = () => {
         setPasword(e.target.value);
         break;
 
+      case "image":
+        setImage(e.target.files);
+        break;
+
       default:
         break;
     }
@@ -33,9 +36,8 @@ export const useFormRegister = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setLogin(true)
     try {
-      const { status } = await registered({ name, password, email, rol: "client" })
+      const { status } = await registered({ image, name, password, email, rol: "client" })
 
       if (status) {
         const { token } = await datos({
@@ -48,25 +50,17 @@ export const useFormRegister = () => {
         }
       }
     } catch (error) {
+      setMessage(error.response.data.err.errors[0].msg)
       setTimeout(() => {
-        setMessage(error.response.data.err.errors[0].msg)
-        setLogin(false)
+        setMessage("")
         setName("")
         setEmail("")
         setPasword("")
-      }, 3000);
+      }, 1500);
     }
   }
 
-  // } else {
-  //   setTimeout(() => {
-
-  //     setLogin(false)
-  //   }, 3000);
-
-
   return {
-    login,
     message,
     password,
     name,

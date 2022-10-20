@@ -1,37 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 .coffee__nav {
-    width: min(90%, 1200px);
-    margin: 0 auto;
-    padding-top: 10px;
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.coffee__link {
+  display: inline-block;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.coffee__logout{
+  color: black;
+  padding: 8px;
+  border: none;
+  background: rgb(168, 96, 235);
+  color: white;
+  border-radius: 20px;
+  font-size: .8rem;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.coffee__link:hover {
+  border-bottom: 1px solid #006f44;
+  transition: 1s;
+  transform: scale(1.1);
+}
+
+.coffee__Logo {
+  font-family: "Lobster", cursive;
+  color: rgb(251, 237, 206);
+  font-size: 50px;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.coffee__links {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+}
+
+.coffee__hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: none;
+  color: white;
+  font-size: 20px;
+  margin: 0;
+  cursor: pointer;
+  transition: all 2s;
+}
+
+@media (max-width: 550px) {
+  .data {
+    position: fixed;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    top: 60px;
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 8px;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    z-index: 1;
   }
-  
-  .coffee__link {
-    display: inline-block;
-    color: #d4e9e2;
-    text-decoration: none;
-    font-weight: 400;
-    cursor: pointer;
-    font-size: 15px;
-  }
-  
-  .coffee__link:hover{
-    border-bottom: 1px solid #006f44;
-    transition: 1s;
-    transform: scale(1.1);
-  }
-  
-  .coffee__Logo {
-    font-family: 'Lobster', cursive;
-    color: rgb(251, 237, 206);
-    font-size: 50px;
-    text-decoration: none;
-  }
-  
-  .coffee__links {
-    position: relative;
+
+  .coffee__hamburger {
     display: flex;
-    gap: 25px;
-    list-style: none;
   }
+
+  .coffee__link {
+    color: black;
+    border: none;
+  }
+
+  .coffee__link:hover {
+    border: none;
+  }
+  .active {
+    display: none;
+  }
+
+  .coffee__Logo{
+    font-size: 30px;
+  }
+}

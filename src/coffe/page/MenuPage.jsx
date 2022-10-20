@@ -7,9 +7,9 @@ import { useContext } from "react"
 import { UserContext } from "../context/products/UserContext"
 
 export const MenuPage = () => {
-  const { getCoffes, addProduct, products, car } = useContext(UserContext)
+  const { getCoffes, addProduct } = useContext(UserContext)
 
-  const { isLoading } = useQuery(['getProducts'], getCoffes)
+  const { isLoading,data } = useQuery(['getProducts'], getCoffes)
 
   const handleAdd = (datos) => {
     addProduct(datos)
@@ -23,7 +23,7 @@ export const MenuPage = () => {
           {
             isLoading
               ? <Loading />
-              : products.map(item => (
+              : data.map(item => (
 
                 <CarCoffee
                   onclickAdd={handleAdd}

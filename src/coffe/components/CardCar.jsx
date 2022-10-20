@@ -5,7 +5,7 @@ import './css/cardcar.css'
 
 export const CardCar = ({ item }) => {
     const { name, category, image, price, quantity, _id } = item
-    const { addProduct } = useContext(UserContext)
+    const { addProduct, deleteProduct } = useContext(UserContext)
 
     return (
         <>
@@ -33,7 +33,7 @@ export const CardCar = ({ item }) => {
                 </div>
                 <div
                     className="carDelete"
-                    onClick={() => (console.log('object'))}
+                    onClick={() => deleteProduct(_id)}
                 >
                     <FiX className="iconDelete" />
                 </div>

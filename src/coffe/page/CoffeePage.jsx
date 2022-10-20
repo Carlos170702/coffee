@@ -25,6 +25,7 @@ export const CoffeePage = () => {
           </button>
         </div>
         <div className='coffee__imgIni'>
+          <img src="https://tse4.mm.bing.net/th?id=OIP.4a4flzHv9AQKe94lO-hFxQHaLH&pid=Api&P=0" alt="imagen de tasa de cafe" />
         </div>
       </section>
     </>

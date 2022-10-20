@@ -72,13 +72,18 @@
 .carButton {
   padding: 8px;
   border: none;
-  background-color: rgb(0, 111, 68);
+  background-color: #006f44;
   text-transform: uppercase;
   color: white;
   font-family: var(--secundary);
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: .5s ease;
+}
+
+.carButton:hover{
+  background-color: #03623e;
 }
 
 .carPrice {
@@ -151,5 +156,11 @@
       grid-column: 1/2;
       grid-row: 3/4;
       width: 100%;
+    }
+}
+
+@media (max-width: 400px){
+    .carProduct{
+      display: none;
     }
 }

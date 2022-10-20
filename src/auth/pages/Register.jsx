@@ -2,7 +2,7 @@ import { FiLogIn, FiKey, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useFormRegister } from '../hooks';
 import { AiOutlineMail } from "react-icons/ai";
-import { Loading, Error } from '../components'
+import { Error } from '../components'
 
 export const Register = () => {
   const { email, name, password, login, message, handleChangeDatas, handleRegister } = useFormRegister();
@@ -18,8 +18,9 @@ export const Register = () => {
             </div>
 
             <h1 className="login__titulo">Regitrarse</h1>
+
             <Error aviso={message} />
-            {login && <Loading />}
+
             <div className="login__inputBox">
               <div className="login__box">
                 <div className="login_icon"><FiUser /></div>
@@ -71,6 +72,18 @@ export const Register = () => {
               </div>
             </div>
 
+
+            <div className='login__inputBox'>
+              <div className='login__box login__box--img'>
+                <input
+                  type="file"
+                  name='image'
+                  onChange={handleChangeDatas}
+                />
+
+              </div>
+            </div>
+
             <label className="login__Remember">
               <input
                 className='login__checkbox'
@@ -78,16 +91,16 @@ export const Register = () => {
               />Recordarme
             </label>
 
-            <div className="login__inputBox">
-              <div className="login__boxSubmit">
-                <div className="login_icon login_icon--btn"><FiLogIn /></div>
-                <input
-                  className='login__inputSubmit'
-                  type="submit"
-                  value="Registrarse"
-                  onClick={handleRegister}
-                />
-              </div>
+            <div className="login__inputBox login__boxSubmit">
+              <button
+                className='login__inputSubmit'
+                type="submit"
+                value="Registrarse"
+                onClick={handleRegister}
+              >
+                <FiLogIn />
+                Registrarse
+              </button>
             </div>
 
             <div className='login__logRegis'>

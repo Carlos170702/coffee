@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { Product } from "../../controller/product";
-import { ADD_PRODUCT, DELETE_PRODUCT, GET_COFFEES } from "../types";
+import { ADD_PRODUCT, DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES } from "../types";
 import { UserContext } from "./UserContext";
 import UserReducer from "./UserReducer.js";
 
@@ -17,7 +17,6 @@ export const InitialState = ({ children }) => {
       method: "GET",
       url: "https://restserver-devjose.herokuapp.com/api/products/getproducts",
     });
-
     dispatch({
       type: GET_COFFEES,
       payload: data.products
@@ -40,6 +39,13 @@ export const InitialState = ({ children }) => {
     })
   };
 
+  const deleteAllProducts = () => {
+    dispatch({
+      type: DELETE_ALL_CAR,
+      payload: []
+    })
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -47,6 +53,8 @@ export const InitialState = ({ children }) => {
         car: state.car,
         getCoffes,
         addProduct,
+        deleteProduct,
+        deleteAllProducts
       }}
     >
       {children}
