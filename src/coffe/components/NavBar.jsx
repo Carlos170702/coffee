@@ -46,6 +46,7 @@ export const NavBar = () => {
                 <ul className={`coffee__links data ${active && 'active'}`}>
                     <Link className="coffee__link" to={"/Menu"}>Menu</Link>
                     <Link className="coffee__link" to={"profile"}>perfil</Link>
+                    <Link className="coffee__link" to={"/ProductsOnHold"}>Pedidos pendientes</Link>
                     <button
                         className="coffee__logout"
                         onClick={handleLogout}
