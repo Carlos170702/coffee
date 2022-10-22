@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --secundary: "Inconsolata", monospace;
+  --primary: "Poppins", sans-serif;
+}
+
+* {
+  font-family: var(--primary);
+  box-sizing: border-box;
+}

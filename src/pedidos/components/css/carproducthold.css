@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --secundary: "Inconsolata", monospace;
+  --primary: "Poppins", sans-serif;
+}
+
+* {
+  font-family: var(--primary);
+  box-sizing: border-box;
+}
+
+.ProductsOnHold {
+  width: min(90%, 800px);
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #878787;
+  border-radius: 30px;
+}
+
+.holdOn__information {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+/* informacion */
+.holdOn__information h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #ffd3a7;
+  font-family: var(--primary);
+}
+
+.holdOninf {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  padding: 10px;
+  gap: 1rem;
+}
+
+.holdOninf__personal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #ffffff15;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 1rem;
+  width: auto;
+}
+
+.holdOninf__personal__img {
+  width: 150px;
+  height: 150px;
+}
+.holdOninf__personal__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+
+.holdOninf__personal__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.holdOninf__personal__data h3 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: var(--secundarys);
+  font-size: 12px;
+  font-weight: normal;
+  color: white;
+  text-align: start;
+}
+
+.holdOninf__personal__data h3 span {
+  font-size: 18px;
+  font-family: var(--secundary);
+  font-weight: 400;
+  color: #ffebcd;
+}
+
+
+.holdOninf__personal__data__confirmado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.holdOninf__personal__data__confirmado span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+.denied {
+  background-color: #ff0205;
+}
+
+.success {
+  background-color: #2ae502;
+}
+
+/* button confirmar */
+.holdOninf__button {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 8px;
+  border: none;
+  color: white;
+  gap: 5px;
+}

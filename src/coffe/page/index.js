@@ -1,2 +1,4 @@
+export * from './CardPage'
 export * from './CoffeePage'
-export * from './Menu'
+export * from './MenuPage'
+export * from './ProductsOnHold'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiAlignJustify, FiX } from 'react-icons/fi'
+import { FiAlignJustify, FiX, FiLogOut } from 'react-icons/fi'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import './css/navbar.css'
 
@@ -50,7 +50,7 @@ export const NavBar = () => {
                         className="coffee__logout"
                         onClick={handleLogout}
                     >
-                        Cerrar seccion
+                        Cerrar sesion<FiLogOut className='coffe__Logout__icon' />
                     </button>
                 </ul>
             </nav>
