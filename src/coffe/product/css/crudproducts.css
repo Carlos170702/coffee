@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  --primary: "Inconsolata", monospace;
+  --secundary: "Poppins", sans-serif;
+}
+
+* {
+  font-family: var(--secundary);
+}
+
+.CrudProducts {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+}
+
+.CrudProducts__content {
+  border: 1px solid #578a4c;
+  margin-top: 15px;
+}
+
+.CrudProducts__activity__activity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  padding: 15px;
+  background-color: #00ad99;
+  width: 100%;
+  gap: 30px;
+}
+
+.CrudProducts__Add {
+  color: rgb(255, 255, 255);
+  border: none;
+  background-color: #29cf04;
+  padding: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.CrudProducts__Add:hover {
+  background-color: #25ba04;
+}
+
+.CrudProducts__SearchProduct {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.CrudProducts__SearchProduct__search {
+  width: 200px;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  outline: none;
+  color: rgb(40, 40, 40);
+}
+
+.CrudProducts__SearchProduct__search::placeholder {
+  color: gray;
+}
+
+.CrudProducts__SearchProduct__icon {
+  color: white;
+  font-size: 30px;
+  background-color: #29cf04;
+  padding: 5px;
+  border-radius: 50px;
+}

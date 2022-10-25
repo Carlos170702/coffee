@@ -3,7 +3,8 @@ import { CardPage } from "../page/CardPage"
 import { CoffeePage } from "../page/CoffeePage"
 import { MenuPage } from "../page/MenuPage"
 import { InitialState } from '../context/products/InitialState'
-import { ProductsOnHold } from "../../pedidos/pages/ProductsOnHold.jsx"
+import { ProductsOnHold } from "../pedidos/pages/ProductsOnHold"
+import { CrudProducts } from "../product/pages/CrudProducts"
 
 export const CoffeeRouter = () => {
   return (
@@ -23,8 +24,18 @@ export const CoffeeRouter = () => {
           </InitialState>}
         />
 
-        <Route path="ProductsOnHold" element={<ProductsOnHold />} />
-        
+        <Route path="ProductsOnHold" element={
+          <InitialState>
+            <ProductsOnHold />
+          </InitialState>
+        } />
+
+        < Route path="Products" element={
+          <InitialState>
+            <CrudProducts />
+          </InitialState>
+        } />
+
         <Route path="/*" element={<Navigate to='coffee' />} />
 
 

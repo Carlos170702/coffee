@@ -1,5 +1,5 @@
 import { useQuery } from "react-query"
-import { NavBar } from "../../coffe/components/NavBar"
+import { NavBar } from "../../components/NavBar"
 import { CarProducHold } from "../components/index"
 import { ProductsHold } from "../controller/getDataProducts"
 import '../css/productsOnHold.css'
