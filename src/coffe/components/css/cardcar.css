@@ -47,7 +47,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
-  color: #efd1a3;
+  color: #ad874d;
   width: min(90%, 1000px);
   gap: 10px;
 }
@@ -101,7 +101,7 @@
 
 .carPrice h5{
   font-family: var(--terciary);
-  color: rgb(186, 186, 186);
+  color: rgb(160, 160, 160);
   font-size: 15px;
 }
 

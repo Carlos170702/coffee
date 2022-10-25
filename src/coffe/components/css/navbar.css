@@ -35,6 +35,7 @@
   align-items: center;
   gap: 8px;
   transition: all .5s;
+  white-space: nowrap;
 }
 
 .coffee__logout:hover{

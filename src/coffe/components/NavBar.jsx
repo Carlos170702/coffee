@@ -47,6 +47,7 @@ export const NavBar = () => {
                     <Link className="coffee__link" to={"/Menu"}>Menu</Link>
                     <Link className="coffee__link" to={"profile"}>perfil</Link>
                     <Link className="coffee__link" to={"/ProductsOnHold"}>Pedidos pendientes</Link>
+                    <Link className="coffee__link" to={"/products"}>Products</Link>
                     <button
                         className="coffee__logout"
                         onClick={handleLogout}

@@ -13,6 +13,7 @@ import "../css/crudproducts.css"
 export const CrudProducts = () => {
     const { getCoffes } = useContext(UserContext)
     const { isLoading, data, isError } = useQuery("getProducts", getCoffes)
+    
     return (
         <>
             <NavBar />

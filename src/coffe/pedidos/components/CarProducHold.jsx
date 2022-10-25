@@ -1,9 +1,22 @@
 import { FiCheck, FiX } from "react-icons/fi"
 import { CarDataPedido } from "./index"
 import "./css/carproducthold.css"
+import { deleteOrder, finishPedido } from "../controller/getDataProducts"
 
 export const CarProducHold = ({ data }) => {
     const { client, date, finish, id, products, totalToPay } = data
+
+    const handleConfirmSale = async () => {
+        const token = JSON.parse(localStorage.getItem("user"))
+        const data = await finishPedido(token, id)
+        console.log(data)
+    }
+
+    const handleDeleteSale = async () => {
+        const token = JSON.parse(localStorage.getItem("user"))
+        const data = await deleteOrder(token, id)
+        console.log(data)
+    }
 
     return (
         <>
@@ -45,8 +58,14 @@ export const CarProducHold = ({ data }) => {
                         }
                     </div>
                     <div className="holdOninf">
-                        <button className="holdOninf__button success"> <FiCheck /> Confirmar</button>
-                        <button className="holdOninf__button denied"> <FiX /> Cancelar</button>
+                        <button
+                            className="holdOninf__button success"
+                            onClick={handleConfirmSale}
+                        > <FiCheck /> Confirmar</button>
+                        <button
+                            className="holdOninf__button denied"
+                            onClick={handleDeleteSale}
+                        > <FiX /> Cancelar</button>
                     </div>
                 </div>
             </div>
