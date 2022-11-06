@@ -10,7 +10,7 @@ export const CarAdded = () => {
     return (
         <>
             <div className="dataCar">
-                <span className="iconCount">{car.length}</span>
+                <span className="iconCount">{car?.length}</span>
                 <Link to={'/Card'} className="iconCar">
                     <FiShoppingCart className="icon" />
                 </Link>

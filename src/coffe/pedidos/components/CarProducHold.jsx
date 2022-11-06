@@ -2,20 +2,23 @@ import { FiCheck, FiX } from "react-icons/fi"
 import { CarDataPedido } from "./index"
 import "./css/carproducthold.css"
 import { deleteOrder, finishPedido } from "../controller/getDataProducts"
+import { useNavigate } from "react-router-dom"
 
 export const CarProducHold = ({ data }) => {
     const { client, date, finish, id, products, totalToPay } = data
+    const navigate = useNavigate()
 
     const handleConfirmSale = async () => {
         const token = JSON.parse(localStorage.getItem("user"))
         const data = await finishPedido(token, id)
-        console.log(data)
     }
 
     const handleDeleteSale = async () => {
         const token = JSON.parse(localStorage.getItem("user"))
         const data = await deleteOrder(token, id)
-        console.log(data)
+        navigate('/ProductsOnHold',{
+            replace: true
+        })
     }
 
     return (

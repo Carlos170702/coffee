@@ -1,38 +1,53 @@
+import { useContext } from "react"
+import { UserContext } from "../../context/products/UserContext"
+import { deleteProduct } from "../controller/apiProduct"
+import { CardInf } from "./CardInf"
 // css
 import "./css/carproducts.css"
 
-export const CarProduct = () => {
+export const CarProduct = ({ data }) => {
+    const { _id } = data
+    const { getCoffes } = useContext(UserContext)
+
+    const infoProduct = [
+        { name: 'Nombre', about: data?.name },
+        { name: 'Precio', about: `$${data?.price}.00` },
+        { name: 'Categoria', about: data?.category.name },
+        { name: 'Stock', about: `${data?.stock} KG` },
+        { name: 'Descripsion', about: data?.description },
+    ]
+
+    const deleteProducts = async () => {
+        const token = JSON.parse(localStorage.getItem("user"))
+        await deleteProduct(_id, token)
+        await getCoffes()
+    }
+
     return (
         <>
             <div className="carProducts">
                 <div className="carProducts__image">
-                    <img src="https://static.scientificamerican.com/espanol/cache/file/050D641B-C40F-460A-B892534B0024CB3C_source.jpg?w=590&h=800&4147C8A7-B3A4-4126-9293322177AC2D1C" alt="" />
+                    <img src={data.image} alt="" />
                 </div>
                 <div className="carProducts__data">
-                    <div className="carProducts__data__product">
-                        <h4>Nombre</h4>
-                        <p>prueba nombre</p>
-                    </div>
-                    <div className="carProducts__data__product">
-                        <h4>precio</h4>
-                        <p>$20.00 MX</p>
-                    </div>
-                    <div className="carProducts__data__product">
-                        <h4>Categoria</h4>
-                        <p> Cafe </p>
-                    </div>
-                    <div className="carProducts__data__product">
-                        <h4>Stock</h4>
-                        <p>90</p>
-                    </div>
-                    <div className="carProducts__data__product">
-                        <h4>Descripsion</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem asperiores labore sapiente voluptates explicabo voluptatibus nihil optio, cum aut. Soluta.</p>
-                    </div>
+                    {
+                        infoProduct.map((item, index) =>
+                        (
+                            <CardInf key={index} data={item} />
+                        )
+                        )
+                    }
                 </div>
                 <div className="carProducts__buttons">
-                    <button className="delete">Eliminar</button>
-                    <button className="update">Actualizar</button>
+                    <button
+                        className="delete"
+                        onClick={deleteProducts}
+                    >Eliminar</button>
+
+                    <button
+                        className="update"
+                        onClick={() => console.log("ola")}
+                    >Actualizar</button>
                 </div>
             </div>
         </>

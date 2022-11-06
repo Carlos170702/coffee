@@ -15,6 +15,8 @@
 }
 
 .CrudProducts__content {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #578a4c;
   margin-top: 15px;
 }
@@ -68,4 +70,22 @@
   background-color: #29cf04;
   padding: 5px;
   border-radius: 50px;
+  cursor: pointer;
+}
+
+.Loading{
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 550px){
+  .CrudProducts__SearchProduct{
+      width: 100%;
+  }
+  .CrudProducts__SearchProduct__search{
+      flex: 1;
+  }
 }

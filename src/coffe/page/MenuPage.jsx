@@ -1,7 +1,6 @@
 import { useQuery } from "react-query"
 import { CarCoffee, NavBar } from "../components"
 import { CarAdded } from "../components/CarAdded"
-import { Loading } from "../components/Loading"
 import '../css/coffee.css'
 import { useContext } from "react"
 import { UserContext } from "../context/products/UserContext"
@@ -22,8 +21,8 @@ export const MenuPage = () => {
         <section className="coffees__coffee">
           {
             isLoading
-              ? <Loading />
-              : data.map(item => (
+              ? <span className="Loadng">Cargando...</span>
+              : data?.map(item => (
 
                 <CarCoffee
                   onclickAdd={handleAdd}

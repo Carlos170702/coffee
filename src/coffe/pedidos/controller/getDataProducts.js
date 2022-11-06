@@ -19,25 +19,22 @@ export const getproductById = async (ID) => {
 };
 
 export const finishPedido = async (token, dato) => {
-  console.log(token)
   const data = await Products({
     method: "POST",
     url: `https://restserver-devjose.herokuapp.com/api/sales/postsale/${dato}`,
     headers: {
-      "x-token":`${token}`,
+      "x-token": `${token}`,
     },
   });
   return data;
 };
 
-
 export const deleteOrder = async (token, dato) => {
-  console.log(token)
   const data = await Products({
     method: "DELETE",
     url: `https://restserver-devjose.herokuapp.com/api/Orders/deleteOrder/${dato}`,
     headers: {
-      "x-token":`${token}`,
+      "x-token": `${token}`,
     },
   });
   return data;

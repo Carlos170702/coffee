@@ -1,4 +1,9 @@
-import { DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES } from "../types";
+import {
+  DELETE_ALL_CAR,
+  DELETE_PRODUCT,
+  GET_COFFEES,
+  GET_PRODUCT_BY_ID,
+} from "../types";
 import { ADD_PRODUCT } from "../types/";
 
 export default (state, action) => {
@@ -44,10 +49,23 @@ export default (state, action) => {
             ...state,
             car: state.car,
           };
-          
+
     case DELETE_ALL_CAR:
       return {
+        ...state,
         car: [],
       };
+
+    case GET_PRODUCT_BY_ID:
+      const productById = state.products.find(item => item._id === payload)
+      return productById 
+        ? {
+            ...state,
+            products: [productById],
+          }
+        : {
+            ...state,
+            products: []
+          };
   }
 };

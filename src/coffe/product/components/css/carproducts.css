@@ -13,7 +13,6 @@
 }
 
 .carProducts__data{
-    min-width: 310px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -33,16 +32,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: white;
     padding: 10px;
     gap: 20px;
-    height: 150px;
 }
 
 .carProducts__buttons button{
     padding: 5px;
     border: none;
     color: black;
+    cursor: pointer;
 }
 
 .delete{
@@ -51,4 +51,14 @@
 
 .update{
     background-color: #c3fcf1;
+}
+
+@media (max-width: 550px){
+    .carProducts{
+        flex-wrap: wrap ;
+        justify-content: center;
+    }
+    .carProducts__buttons{
+        flex-direction: row;
+    }
 }

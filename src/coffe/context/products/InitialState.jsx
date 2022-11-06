@@ -1,13 +1,14 @@
 import { useReducer } from "react";
 import { Product } from "../../controller/product";
-import { ADD_PRODUCT, DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES } from "../types";
+import { Products } from "../../pedidos/controller/products";
+import { ADD_PRODUCT, DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES, GET_PRODUCT_BY_ID } from "../types";
 import { UserContext } from "./UserContext";
 import UserReducer from "./UserReducer.js";
 
 export const InitialState = ({ children }) => {
   const initialState = {
     products: [],
-    car: []
+    car: [],
   };
 
   const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -46,6 +47,13 @@ export const InitialState = ({ children }) => {
     })
   }
 
+  const getProductById = async (dato) => {
+    dispatch({
+      type: GET_PRODUCT_BY_ID,
+      payload: dato
+    })
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -54,7 +62,8 @@ export const InitialState = ({ children }) => {
         getCoffes,
         addProduct,
         deleteProduct,
-        deleteAllProducts
+        deleteAllProducts,
+        getProductById
       }}
     >
       {children}
