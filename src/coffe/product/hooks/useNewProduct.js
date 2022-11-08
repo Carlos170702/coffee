@@ -5,7 +5,7 @@ import { useForm } from "./useForm";
 
 export const useNewProduct = () => {
   const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [infError, setInfError] = useState({
     titulo: "",
     message: "Otro error",
@@ -21,14 +21,10 @@ export const useNewProduct = () => {
   //create a new product
   const createNewProduct = async (e, dato, handleActive) => {
     const { name, stock, price, description } = dato;
+    const token = localStorage.getItem("user");
     e.preventDefault();
-    setIsLoading(true)
-    let headersList = {
-      Accept: "*/*",
-      "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-      "x-token":
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzU3NmU5YjRkNjIxNjNmZWU0ZmJlYWUiLCJpYXQiOjE2NjY2NzQzMzJ9.SPMk-ejj_s0a-EdIedPt-GpJiW0w8D5H92o_lt3Ll9A",
-    };
+    setIsLoading(true);
+    const headersList = { "x-token": JSON.parse(token) };
     var formdata = new FormData();
     formdata.append("file", file ? file : {});
     formdata.append("name", name);
@@ -42,7 +38,8 @@ export const useNewProduct = () => {
       status === true && getCoffes();
       status === true && handleActive();
     } catch (e) {
-      setIsLoading(false)
+      console.log(e);
+      setIsLoading(false);
       setInfError({
         titulo: "Error al crear producto",
         message: e?.response?.data?.err.errors,
@@ -71,6 +68,6 @@ export const useNewProduct = () => {
     formState,
     error,
     infError,
-    isLoading
+    isLoading,
   };
 };
