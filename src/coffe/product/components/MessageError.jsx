@@ -1,14 +1,15 @@
 import './css/messageError.css'
 
 export const MessageError = ({ data }) => {
-  const { titulo, messages } = data
+  const { titulo, message } = data
+
   return (
     <div className="Error">
       <div className='Error__content'>
         <h2>{titulo}</h2>
         <ol>
           {
-            messages.map((item, index) => (
+            message.map((item, index) => (
               <li key={index}>{item.msg}</li>
             ))
           }

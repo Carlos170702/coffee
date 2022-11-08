@@ -1,10 +1,13 @@
+import { InitialState } from "./coffe/context/products/InitialState"
 import { AppRoutes } from "./routes"
 
 function App() {
 
   return (
     <div className="App">
-      <AppRoutes />
+      <InitialState>
+        <AppRoutes />
+      </InitialState>
     </div>
   )
 }

@@ -1,15 +1,21 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../coffe/context/products/UserContext";
 
 export const PrivateRouter = ({ children }) => {
   const navigate = useNavigate();
-  const user = localStorage.getItem('user')
+  const { getUserByToken } = useContext(UserContext)
+  const token = localStorage.getItem('user')
 
   useEffect(() => {
-    (!user) && navigate('login')
-    return
+    getUserByToken(token)
   }, [])
 
+
+  useEffect(() => {
+    (!token) && navigate('login')
+    return
+  }, [])
 
   return children
 }

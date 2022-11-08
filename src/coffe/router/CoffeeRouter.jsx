@@ -13,27 +13,20 @@ export const CoffeeRouter = () => {
         <Route path="coffee" element={<CoffeePage />} />
 
         <Route path="Menu" element={
-          <InitialState>
-            <MenuPage />
-          </InitialState>}
+          <MenuPage />
+        }
         />
 
         <Route path={"Card"} element={
-          <InitialState>
-            <CardPage />
-          </InitialState>}
-        />
+          <CardPage />
+        } />
 
         <Route path="ProductsOnHold" element={
-          <InitialState>
-            <ProductsOnHold />
-          </InitialState>
+          <ProductsOnHold />
         } />
 
         < Route path="Products" element={
-          <InitialState>
-            <CrudProducts />
-          </InitialState>
+          <CrudProducts />
         } />
 
         <Route path="/*" element={<Navigate to='coffee' />} />

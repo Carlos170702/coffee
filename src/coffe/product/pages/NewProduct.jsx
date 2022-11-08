@@ -7,16 +7,20 @@ import { useNewProduct } from '../hooks/useNewProduct'
 
 // css
 import '../css/newproduct.css'
+import { Loading } from '../../components'
 
 export const NewProduct = ({ handleActive }) => {
-    const { newImage, createNewProduct, onInputChange, formState, error, infError } = useNewProduct()
+    const { newImage, createNewProduct, onInputChange, formState, error, infError, isLoading } = useNewProduct()
     const { name, stock, price, description } = formState;
-
     return (
         <>
             {
-                error && <MessageError data={{ titulo: 'Error al crear producto', messages: infError }} />
+                error && <MessageError data={infError} isLoading={isLoading} />
             }
+            {
+                isLoading && <Loading />
+            }
+            
             <div className='newProduct'>
                 <FiX className='newProduct__cancel' onClick={handleActive} />
                 <div className='newProductContainer'>

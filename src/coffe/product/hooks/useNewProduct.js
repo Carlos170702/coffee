@@ -5,7 +5,11 @@ import { useForm } from "./useForm";
 
 export const useNewProduct = () => {
   const [error, setError] = useState(false);
-  const [infError, setInfError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
+  const [infError, setInfError] = useState({
+    titulo: "",
+    message: "Otro error",
+  });
   const [file, setFile] = useState(null);
   const { getCoffes } = useContext(UserContext);
 
@@ -18,6 +22,7 @@ export const useNewProduct = () => {
   const createNewProduct = async (e, dato, handleActive) => {
     const { name, stock, price, description } = dato;
     e.preventDefault();
+    setIsLoading(true)
     let headersList = {
       Accept: "*/*",
       "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -37,11 +42,16 @@ export const useNewProduct = () => {
       status === true && getCoffes();
       status === true && handleActive();
     } catch (e) {
+      setIsLoading(false)
+      setInfError({
+        titulo: "Error al crear producto",
+        message: e?.response?.data?.err.errors,
+      });
+
       setError(true);
-      setInfError(e.response.data.err.errors);
       setTimeout(() => {
         setError(false);
-        setInfError(null)
+        setInfError(null);
       }, 3000);
     }
   };
@@ -61,5 +71,6 @@ export const useNewProduct = () => {
     formState,
     error,
     infError,
+    isLoading
   };
 };

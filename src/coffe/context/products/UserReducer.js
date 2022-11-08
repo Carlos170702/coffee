@@ -3,6 +3,7 @@ import {
   DELETE_PRODUCT,
   GET_COFFEES,
   GET_PRODUCT_BY_ID,
+  GET_USER_BY_TOKEN,
 } from "../types";
 import { ADD_PRODUCT } from "../types/";
 
@@ -57,15 +58,21 @@ export default (state, action) => {
       };
 
     case GET_PRODUCT_BY_ID:
-      const productById = state.products.find(item => item._id === payload)
-      return productById 
+      const productById = state.products.find((item) => item._id === payload);
+      return productById
         ? {
             ...state,
             products: [productById],
           }
         : {
             ...state,
-            products: []
+            products: [],
           };
+
+    case GET_USER_BY_TOKEN:
+      return {
+        ...state,
+        user: payload
+      };
   }
 };
