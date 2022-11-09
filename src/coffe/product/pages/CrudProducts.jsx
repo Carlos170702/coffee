@@ -1,34 +1,16 @@
-import { useState } from "react"
-import { useContext } from "react"
+// icons
 import { FiSearch } from "react-icons/fi"
-// useQuery
-import { NavBar } from "../../components"
-// useContext
-import { UserContext } from "../../context/products/UserContext"
 // components
+import { NavBar } from "../../components"
 import { CarProduct } from "../components/CarProduct"
+import { NewProduct } from "./NewProduct"
+// hook
+import { useCrudProducts } from "../hooks/useCrudProducts"
 // css
 import "../css/crudproducts.css"
-import { NewProduct } from "./NewProduct"
 
 export const CrudProducts = () => {
-    const [id, setId] = useState('')
-    const [newProduct, setNewProduct] = useState(false)
-    const { products, getCoffes, getProductById } = useContext(UserContext)
-    products.length === 0 && getCoffes()
-
-    const handleChangeID = (event) => {
-        setId(event.target.value)
-    }
-
-    const clickSearch = () => {
-        getProductById(id)
-        setId('')
-    }
-
-    const handleActive = () => {
-        setNewProduct(!newProduct)
-    }
+    const { products, id, newProduct, getCoffes, setNewProduct, clickSearch, handleActive, handleChangeID } = useCrudProducts()
 
     return (
         <>
@@ -67,7 +49,3 @@ export const CrudProducts = () => {
         </>
     )
 }
-
-
-
-

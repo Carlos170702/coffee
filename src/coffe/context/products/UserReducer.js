@@ -4,6 +4,7 @@ import {
   GET_COFFEES,
   GET_PRODUCT_BY_ID,
   GET_USER_BY_TOKEN,
+  GET__ORDERS,
 } from "../types";
 import { ADD_PRODUCT } from "../types/";
 
@@ -74,5 +75,11 @@ export default (state, action) => {
         ...state,
         user: payload
       };
+
+    case GET__ORDERS: 
+    return{
+      ...state,
+      orders: payload
+    }
   }
 };

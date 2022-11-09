@@ -1,22 +1,14 @@
-import { useState } from 'react'
+//others libraries
+import { Link } from 'react-router-dom'
+// icons
 import { FiAlignJustify, FiX, FiLogOut } from 'react-icons/fi'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+//css
 import './css/navbar.css'
 
+import { useNavBar } from './hooks/useNavBar'
+
 export const NavBar = () => {
-    const [active, setActive] = useState(true)
-    const navigate = useNavigate()
-
-    const handleOptions = () => {
-        setActive(!active)
-    }
-
-    const handleLogout = () => {
-        localStorage.clear("user")
-        navigate("/login", {
-            replace: true
-        })
-    }
+    const { handleLogout, active, handleOptions } = useNavBar()
 
     return (
         <>
@@ -46,7 +38,7 @@ export const NavBar = () => {
                 <ul className={`coffee__links data ${active && 'active'}`}>
                     <Link className="coffee__link" to={"/Menu"}>Menu</Link>
                     <Link className="coffee__link" to={"profile"}>perfil</Link>
-                    <Link className="coffee__link" to={"/ProductsOnHold"}>Pedidos pendientes</Link>
+                    <Link className="coffee__link" to={"/ProductsOnHold"}>pendientes</Link>
                     <Link className="coffee__link" to={"/products"}>Products</Link>
                     <button
                         className="coffee__logout"

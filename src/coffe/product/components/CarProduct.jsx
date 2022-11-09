@@ -1,13 +1,12 @@
-import { useContext } from "react"
-import { UserContext } from "../../context/products/UserContext"
-import { deleteProduct } from "../controller/apiProduct"
+// componentes
 import { CardInf } from "./CardInf"
+//hook
+import { useCarProduct } from "./hooks/useCarProduct"
 // css
 import "./css/carproducts.css"
 
 export const CarProduct = ({ data }) => {
-    const { _id } = data
-    const { getCoffes } = useContext(UserContext)
+    const { deleteProducts } = useCarProduct()
 
     const infoProduct = [
         { name: 'Nombre', about: data?.name },
@@ -16,12 +15,6 @@ export const CarProduct = ({ data }) => {
         { name: 'Stock', about: `${data?.stock} KG` },
         { name: 'Descripsion', about: data?.description },
     ]
-
-    const deleteProducts = async () => {
-        const token = JSON.parse(localStorage.getItem("user"))
-        await deleteProduct(_id, token)
-        await getCoffes()
-    }
 
     return (
         <>
@@ -41,7 +34,7 @@ export const CarProduct = ({ data }) => {
                 <div className="carProducts__buttons">
                     <button
                         className="delete"
-                        onClick={deleteProducts}
+                        onClick={() => deleteProducts(data._id)}
                     >Eliminar</button>
 
                     <button

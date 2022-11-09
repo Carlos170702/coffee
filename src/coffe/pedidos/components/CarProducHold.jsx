@@ -1,25 +1,15 @@
+//icons
 import { FiCheck, FiX } from "react-icons/fi"
+//components
 import { CarDataPedido } from "./index"
+//hook
+import { useCarProductHold } from "./hooks/useCarProductHold"
+//css
 import "./css/carproducthold.css"
-import { deleteOrder, finishPedido } from "../controller/getDataProducts"
-import { useNavigate } from "react-router-dom"
 
 export const CarProducHold = ({ data }) => {
+    const { handleConfirmSale, handleDeleteSale } = useCarProductHold()
     const { client, date, finish, id, products, totalToPay } = data
-    const navigate = useNavigate()
-
-    const handleConfirmSale = async () => {
-        const token = JSON.parse(localStorage.getItem("user"))
-        const data = await finishPedido(token, id)
-    }
-
-    const handleDeleteSale = async () => {
-        const token = JSON.parse(localStorage.getItem("user"))
-        const data = await deleteOrder(token, id)
-        navigate('/ProductsOnHold',{
-            replace: true
-        })
-    }
 
     return (
         <>
@@ -63,11 +53,11 @@ export const CarProducHold = ({ data }) => {
                     <div className="holdOninf">
                         <button
                             className="holdOninf__button success"
-                            onClick={handleConfirmSale}
+                            onClick={() => handleConfirmSale(id)}
                         > <FiCheck /> Confirmar</button>
                         <button
                             className="holdOninf__button denied"
-                            onClick={handleDeleteSale}
+                            onClick={() => handleDeleteSale(id)}
                         > <FiX /> Cancelar</button>
                     </div>
                 </div>

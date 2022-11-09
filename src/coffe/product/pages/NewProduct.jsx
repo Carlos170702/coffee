@@ -12,6 +12,7 @@ import { Loading } from '../../components'
 export const NewProduct = ({ handleActive }) => {
     const { newImage, createNewProduct, onInputChange, formState, error, infError, isLoading } = useNewProduct()
     const { name, stock, price, description } = formState;
+
     return (
         <>
             {
@@ -20,7 +21,7 @@ export const NewProduct = ({ handleActive }) => {
             {
                 isLoading && <Loading />
             }
-            
+
             <div className='newProduct'>
                 <FiX className='newProduct__cancel' onClick={handleActive} />
                 <div className='newProductContainer'>

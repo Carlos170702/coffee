@@ -18,34 +18,37 @@
   font-weight: 400;
   cursor: pointer;
   font-size: 15px;
+  white-space: nowrap;
+  border-left: 2px solid rgb(222, 222, 222);
+  padding-left: 5px;
 }
 
-.coffee__logout{
+.coffee__logout {
   color: black;
   padding: 8px;
   border: none;
   background: rgb(168, 96, 235);
   color: white;
   border-radius: 20px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  transition: all .5s;
+  transition: all 0.5s;
   white-space: nowrap;
 }
 
-.coffee__logout:hover{
+.coffee__logout:hover {
   background-color: rgb(156, 87, 220);
 }
 
-.coffe__Logout__icon{
+.coffe__Logout__icon {
   padding: 0;
   margin: 0;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .coffee__link:hover {
@@ -57,16 +60,16 @@
 .coffee__Logo {
   font-family: "Lobster", cursive;
   color: rgb(251, 237, 206);
-  font-size: 50px;
+  font-size: 30px;
   text-decoration: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .coffee__links {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 10px;
   list-style: none;
 }
 
@@ -82,7 +85,7 @@
   transition: all 2s;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .data {
     position: fixed;
     display: flex;
@@ -93,8 +96,7 @@
     right: 10px;
     background-color: rgb(255, 255, 255);
     padding: 20px 8px;
-    border-radius: 20px;
-    font-family: "Poppins", sans-serif;
+    border-radius: 20px; 
     z-index: 1;
   }
 
@@ -114,7 +116,7 @@
     display: none;
   }
 
-  .coffee__Logo{
+  .coffee__Logo {
     font-size: 30px;
   }
 }

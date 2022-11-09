@@ -1,15 +1,21 @@
+import { useContext } from "react";
+import { UserContext } from "../../../context/products/UserContext";
+import { deleteOrder, finishPedido } from "../../controller/getDataProducts";
+
 export const useCarProductHold = () => {
-  const handleConfirmSale = async () => {
+  const { getPendientes } = useContext(UserContext);
+
+  const handleConfirmSale = async (id) => {
     const token = JSON.parse(localStorage.getItem("user"));
-    const data = await finishPedido(token, id);
-    console.log(data)
+    await finishPedido(token, id);
   };
 
-  const handleDeleteSale = async () => {
+  const handleDeleteSale = async (id) => {
     const token = JSON.parse(localStorage.getItem("user"));
-    const data = await deleteOrder(token, id);
-    console.log(data)
+    await deleteOrder(token, id);
+    getPendientes();
   };
+
   return {
     handleConfirmSale,
     handleDeleteSale,

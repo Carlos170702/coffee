@@ -1,35 +1,53 @@
 import { useReducer } from "react";
+import { getProducts } from "../../controller/GetProduct";
 import { Product } from "../../controller/product";
-import { ADD_PRODUCT, DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES, GET_PRODUCT_BY_ID, GET_USER_BY_TOKEN } from "../types";
+import { ProductsHold } from "../../pedidos/controller/getDataProducts";
+import { ProductsOnHold } from "../../pedidos/pages/ProductsOnHold";
+import { ADD_PRODUCT, DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES, GET_PRODUCT_BY_ID, GET_USER_BY_TOKEN, GET__ORDERS } from "../types";
 import { UserContext } from "./UserContext";
 import UserReducer from "./UserReducer.js";
 
 export const InitialState = ({ children }) => {
   const initialState = {
     products: [],
+    orders: [],
     car: [],
     user: []
   };
 
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
+  //obtener los cafes
   const getCoffes = async () => {
     try {
-      const data = await Product({
-        method: "GET",
-        url: "https://restserver-devjose.herokuapp.com/api/products/getproducts",
-      });
+      const data = await getProducts()
       dispatch({
         type: GET_COFFEES,
-        payload: data.products
+        payload: data
       })
-
-      return data.products
     } catch (e) {
-      return []
     }
   };
 
+  //obtener las ordenes a confirmar
+  const getPendientes = async () => {
+    try {
+      const data = await ProductsHold()
+      dispatch({
+        type: GET__ORDERS,
+        payload: data.listOrders
+      })
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const deleteOrder = async () => {
+    
+  }
+
+  // añade producto a el carrito
   const addProduct = (datos) => {
     dispatch({
       type: ADD_PRODUCT,
@@ -37,6 +55,7 @@ export const InitialState = ({ children }) => {
     })
   };
 
+  //eliminar producto de pagina productos
   const deleteProduct = (datos) => {
     dispatch({
       type: DELETE_PRODUCT,
@@ -44,6 +63,7 @@ export const InitialState = ({ children }) => {
     })
   };
 
+  //elimina todos los productos del carrito
   const deleteAllProducts = () => {
     dispatch({
       type: DELETE_ALL_CAR,
@@ -51,6 +71,7 @@ export const InitialState = ({ children }) => {
     })
   }
 
+  //obtiene producto por ID
   const getProductById = async (dato) => {
     dispatch({
       type: GET_PRODUCT_BY_ID,
@@ -58,6 +79,7 @@ export const InitialState = ({ children }) => {
     })
   }
 
+  //obtiene usuario por token
   const getUserByToken = async (token) => {
     try {
       const data = await Product({
@@ -84,12 +106,14 @@ export const InitialState = ({ children }) => {
         products: state.products,
         car: state.car,
         user: state.user,
+        orders: state.orders,
         getCoffes,
         addProduct,
         deleteProduct,
         deleteAllProducts,
         getProductById,
-        getUserByToken
+        getUserByToken,
+        getPendientes
       }}
     >
       {children}

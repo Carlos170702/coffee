@@ -1,5 +1,8 @@
+//otros
 import { useQuery } from 'react-query'
+// controladores
 import { getproductById } from '../controller/getDataProducts'
+// css
 import './css/cardatapedido.css'
 
 export const CarDataPedido = ({ infProduct }) => {

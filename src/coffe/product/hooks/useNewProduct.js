@@ -38,7 +38,6 @@ export const useNewProduct = () => {
       status === true && getCoffes();
       status === true && handleActive();
     } catch (e) {
-      console.log(e);
       setIsLoading(false);
       setInfError({
         titulo: "Error al crear producto",
