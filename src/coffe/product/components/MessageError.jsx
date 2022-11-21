@@ -1,6 +1,8 @@
 import './css/messageError.css'
 
 export const MessageError = ({ data }) => {
+  console.log(data)
+
   const { titulo, message } = data
 
   return (

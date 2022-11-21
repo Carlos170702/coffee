@@ -83,8 +83,9 @@
 
 @media (max-width: 550px){
     .coffee{
+      width: auto;
       grid-template-columns: 1fr;
-      height: auto;
+      height: 80vh;
     }
 
     .coffee__cotent{
@@ -92,7 +93,14 @@
     }
 
     .coffee__imgIni{
-      width: 100%;
+      width: auto;
       height: auto;
+      display: flex;
+      align-items: center ;
+      justify-content: center;
+    }
+
+    .coffee__imgIni img{
+      width: 60%;
     }
 }

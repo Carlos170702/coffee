@@ -11,6 +11,15 @@ export const useNewProduct = () => {
     message: "Otro error",
   });
   const [file, setFile] = useState(null);
+
+  //hook de formulario
+  const { formState, onInputChange } = useForm({
+    name: "",
+    stock: "",
+    price: "",
+    description: "",
+  });
+
   const { getCoffes } = useContext(UserContext);
 
   //Add img
@@ -19,10 +28,10 @@ export const useNewProduct = () => {
   };
 
   //create a new product
-  const createNewProduct = async (e, dato, handleActive) => {
-    const { name, stock, price, description } = dato;
-    const token = localStorage.getItem("user");
+  const createNewProduct = async (e, handleActive) => {
     e.preventDefault();
+    const { name, stock, price, description } = formState;
+    const token = localStorage.getItem("user");
     setIsLoading(true);
     const headersList = { "x-token": JSON.parse(token) };
     var formdata = new FormData();
@@ -51,14 +60,6 @@ export const useNewProduct = () => {
       }, 3000);
     }
   };
-
-  //hook de formulario
-  const { formState, onInputChange } = useForm({
-    name: "",
-    stock: "",
-    price: "",
-    description: "",
-  });
 
   return {
     newImage,

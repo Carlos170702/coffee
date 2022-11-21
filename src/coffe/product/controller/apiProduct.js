@@ -21,3 +21,12 @@ export const newProduct = async (token, dato) => {
 
   return data;
 };
+
+export const apiUpdatedProduct = async (id, token, dato) => {
+  const data = await Product({
+    url: `https://restserver-devjose.herokuapp.com/api/products/updateProduct/${id}`,
+    method: "PUT",
+    headers: token,
+    data: dato,
+  });
+};

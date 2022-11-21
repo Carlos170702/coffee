@@ -5,6 +5,7 @@ import { MenuPage } from "../page/MenuPage"
 import { InitialState } from '../context/products/InitialState'
 import { ProductsOnHold } from "../pedidos/pages/ProductsOnHold"
 import { CrudProducts } from "../product/pages/CrudProducts"
+import { Profile } from "../page/Profile"
 
 export const CoffeeRouter = () => {
   return (
@@ -27,6 +28,10 @@ export const CoffeeRouter = () => {
 
         < Route path="Products" element={
           <CrudProducts />
+        } />
+
+        < Route path="profile" element={
+          <Profile />
         } />
 
         <Route path="/*" element={<Navigate to='coffee' />} />

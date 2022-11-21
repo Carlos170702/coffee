@@ -6,14 +6,15 @@ import { useCarProduct } from "./hooks/useCarProduct"
 import "./css/carproducts.css"
 
 export const CarProduct = ({ data }) => {
-    const { deleteProducts } = useCarProduct()
+    const { deleteProducts, updateProductPage } = useCarProduct()
+    const { name, price, category, stock, description } = data
 
     const infoProduct = [
-        { name: 'Nombre', about: data?.name },
-        { name: 'Precio', about: `$${data?.price}.00` },
-        { name: 'Categoria', about: data?.category.name },
-        { name: 'Stock', about: `${data?.stock} KG` },
-        { name: 'Descripsion', about: data?.description },
+        { name: 'Nombre', about: name },
+        { name: 'Precio', about: `$${price}.00` },
+        { name: 'Categoria', about: category.name },
+        { name: 'Stock', about: `${stock} KG` },
+        { name: 'Descripsion', about: description },
     ]
 
     return (
@@ -39,7 +40,7 @@ export const CarProduct = ({ data }) => {
 
                     <button
                         className="update"
-                        onClick={() => console.log("ola")}
+                        onClick={() => updateProductPage( data )}
                     >Actualizar</button>
                 </div>
             </div>

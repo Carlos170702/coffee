@@ -2,17 +2,30 @@ import { useReducer } from "react";
 import { getProducts } from "../../controller/GetProduct";
 import { Product } from "../../controller/product";
 import { ProductsHold } from "../../pedidos/controller/getDataProducts";
-import { ProductsOnHold } from "../../pedidos/pages/ProductsOnHold";
-import { ADD_PRODUCT, DELETE_ALL_CAR, DELETE_PRODUCT, GET_COFFEES, GET_PRODUCT_BY_ID, GET_USER_BY_TOKEN, GET__ORDERS } from "../types";
+import {
+  ADD_PRODUCT,
+  DELETE_ALL_CAR,
+  DELETE_PRODUCT,
+  GET_COFFEES,
+  GET_PRODUCT_BY_ID,
+  GET_USER_BY_TOKEN,
+  GET__ORDERS,
+  UPDATE_PRODUCT
+} from "../types";
 import { UserContext } from "./UserContext";
 import UserReducer from "./UserReducer.js";
 
 export const InitialState = ({ children }) => {
+
   const initialState = {
     products: [],
     orders: [],
     car: [],
-    user: []
+    user: [],
+    updateProduct: {
+      status: false,
+      data: null,
+    }
   };
 
   const [state, dispatch] = useReducer(UserReducer, initialState);
@@ -44,7 +57,7 @@ export const InitialState = ({ children }) => {
   }
 
   const deleteOrder = async () => {
-    
+
   }
 
   // añade producto a el carrito
@@ -99,6 +112,17 @@ export const InitialState = ({ children }) => {
     }
   };
 
+  // updateProduct
+  const updateProductPage = (data) => {
+    dispatch({
+      type: UPDATE_PRODUCT,
+      payload: {
+        status: !state.updateProduct.status,
+        data: data
+      }
+    })
+  }
+
 
   return (
     <UserContext.Provider
@@ -107,16 +131,23 @@ export const InitialState = ({ children }) => {
         car: state.car,
         user: state.user,
         orders: state.orders,
+        updateProduct: state.updateProduct,
         getCoffes,
         addProduct,
         deleteProduct,
         deleteAllProducts,
         getProductById,
         getUserByToken,
-        getPendientes
+        getPendientes,
+        updateProductPage,
       }}
     >
       {children}
     </UserContext.Provider>
   );
 };
+
+
+
+
+

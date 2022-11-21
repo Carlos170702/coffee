@@ -82,10 +82,15 @@
   font-weight: normal;
   color: white;
   text-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .holdOninf__personal__data h3 span {
-  font-size: 18px;
+  font-size: 15px;
   font-family: var(--secundary);
   font-weight: 400;
   color: #ffebcd;
@@ -128,4 +133,10 @@
   color: white;
   gap: 5px;
   cursor: pointer;
+}
+
+.ProductsOnHold__error{
+  text-align: center;
+  color: #ff0205;
+  margin-top: 30px;
 }

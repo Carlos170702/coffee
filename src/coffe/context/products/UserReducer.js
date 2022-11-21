@@ -5,6 +5,7 @@ import {
   GET_PRODUCT_BY_ID,
   GET_USER_BY_TOKEN,
   GET__ORDERS,
+  UPDATE_PRODUCT,
 } from "../types";
 import { ADD_PRODUCT } from "../types/";
 
@@ -73,13 +74,19 @@ export default (state, action) => {
     case GET_USER_BY_TOKEN:
       return {
         ...state,
-        user: payload
+        user: payload,
       };
 
-    case GET__ORDERS: 
-    return{
-      ...state,
-      orders: payload
-    }
+    case GET__ORDERS:
+      return {
+        ...state,
+        orders: payload,
+      };
+
+    case UPDATE_PRODUCT:
+      return {
+        ...state,
+        updateProduct: payload,
+      };
   }
 };

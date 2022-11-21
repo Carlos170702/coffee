@@ -3,11 +3,12 @@ import { UserContext } from "../../../context/products/UserContext";
 import { deleteOrder, finishPedido } from "../../controller/getDataProducts";
 
 export const useCarProductHold = () => {
-  const { getPendientes } = useContext(UserContext);
+  const { getPendientes, user } = useContext(UserContext);
 
   const handleConfirmSale = async (id) => {
     const token = JSON.parse(localStorage.getItem("user"));
     await finishPedido(token, id);
+    getPendientes();
   };
 
   const handleDeleteSale = async (id) => {
@@ -17,6 +18,7 @@ export const useCarProductHold = () => {
   };
 
   return {
+    user,
     handleConfirmSale,
     handleDeleteSale,
   };

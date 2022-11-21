@@ -8,7 +8,10 @@ export const PrivateRouter = ({ children }) => {
   const token = localStorage.getItem('user')
 
   useEffect(() => {
-    getUserByToken(token)
+    const user = async () => {
+      await getUserByToken(token)
+    }
+    user()
   }, [])
 
 

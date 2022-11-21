@@ -4,13 +4,12 @@ import { UserContext } from "../../context/products/UserContext";
 export const useCrudProducts = () => {
   const [id, setId] = useState("");
   const [newProduct, setNewProduct] = useState(false);
-  const { products, getCoffes, getProductById } = useContext(UserContext);
-
+  const { products, getCoffes, getProductById, updateProduct, user } = useContext(UserContext);
   products.length === 0 && getCoffes();
 
   const handleChangeID = (event) => {
     setId(event.target.value);
-    console.log(id)
+    console.log(id);
   };
 
   const clickSearch = () => {
@@ -23,11 +22,12 @@ export const useCrudProducts = () => {
   };
 
   return {
+    user,
     newProduct,
     id,
     products,
     getCoffes,
-    setNewProduct,
+    updateProduct,
     handleChangeID,
     clickSearch,
     handleActive,

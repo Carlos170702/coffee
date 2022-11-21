@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@400;700&family=Source+Code+Pro&display=swap");
+
+:root {
+  --primary: "Inter", sans-serif;
+  --secundary: "Josefin Sans", sans-serif;
+  --terciary: "Source Code Pro", monospace;
+}
+
+.profile {
+  width: min(95%, 800px);
+  margin: 50px auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profile__titulo {
+  width: 100%;
+  background-color: #00ad99;
+  height: 200px;
+}
+
+.profile__titulo h2 {
+  font-size: 35px;
+  font-family: var(--primary);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.profile__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00000099;
+  width: min(90%, 600px);
+  margin: -100px auto 40px auto;
+  padding: 20px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.profile__image {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.profile__image img {
+  width: 100%;
+}
+
+.profile__data {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.profile__inf {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile__inf p{
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.profile__inf p span{
+    color: rgb(203, 203, 203);
+    font-size: 12px;
+}
+
+.activo {
+  background-color: rgb(50, 149, 50);
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: auto;
+}
+
+.inactivo {
+  background-color: rgb(209, 76, 76);
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: auto;
+}
+
+@media (max-width: 620px){
+    .profile__data{
+        grid-template-columns: 1fr;
+    }
+    .profile__inf{
+        width: 100%;
+    }
+    .profile{
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 500px){
+    .profile__image{
+        width: 150px;
+        height: 150px;
+    }
+}

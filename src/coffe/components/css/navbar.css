@@ -23,6 +23,13 @@
   padding-left: 5px;
 }
 
+.coffee__link__profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
 .coffee__logout {
   color: black;
   padding: 8px;
@@ -71,6 +78,14 @@
   align-items: center;
   gap: 10px;
   list-style: none;
+}
+
+.coffee__links__img{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid black;
+
 }
 
 .coffee__hamburger {

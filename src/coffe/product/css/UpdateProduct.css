@@ -1,0 +1,25 @@
+.isInactive{
+    display: none;
+}
+
+.UpdateProduct{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000090;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.UpdateProduct__cancel{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: wheat;
+    font-size: 25px;
+    cursor: pointer;
+}

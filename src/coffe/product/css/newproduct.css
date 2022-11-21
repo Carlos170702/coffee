@@ -69,15 +69,11 @@
   font-size: 15px;
 }
 
-.newProductContainer__form__data input {
-  flex: 1;
+.newProductContainer__form__data input,textarea {
+  width: 100%;
   padding: 5px;
   outline: none;
   font-family: var(--primary);
-}
-
-.newProductContainer__form__data textarea {
-  flex: 1;
 }
 
 .newProductContainer__form__data input[type="submit"] {
@@ -89,4 +85,5 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
+  cursor: pointer;
 }
