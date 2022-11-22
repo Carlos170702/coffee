@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import { useFormRegister } from '../hooks';
 import { AiOutlineMail } from "react-icons/ai";
 import { Error } from '../components'
+import { Loading } from '../../coffe/components';
 
 export const Register = () => {
-  const { email, name, password, login, message, handleChangeDatas, handleRegister } = useFormRegister();
+  const { isLoading, email, name, password, message, onInputChange, handleRegister, handleChangeimg } = useFormRegister();
 
   return (
     <>
+      {
+        isLoading && <Loading />
+      }
       <div className="container login">
         <div className="login__data">
           <form className="login__form">
@@ -26,7 +30,7 @@ export const Register = () => {
                 <div className="login_icon"><FiUser /></div>
                 <div className='login__contInput'>
                   <input
-                    onChange={handleChangeDatas}
+                    onChange={onInputChange}
                     className='login__input'
                     name="name"
                     type="text"
@@ -43,7 +47,7 @@ export const Register = () => {
                 <div className="login_icon"><AiOutlineMail /></div>
                 <div className='login__contInput'>
                   <input
-                    onChange={handleChangeDatas}
+                    onChange={onInputChange}
                     className='login__input'
                     name="email"
                     type="email"
@@ -60,7 +64,7 @@ export const Register = () => {
                 <div className="login_icon"><FiKey /></div>
                 <div className='login__contInput'>
                   <input
-                    onChange={handleChangeDatas}
+                    onChange={onInputChange}
                     className='login__input'
                     name="password"
                     type="password"
@@ -78,7 +82,7 @@ export const Register = () => {
                 <input
                   type="file"
                   name='image'
-                  onChange={handleChangeDatas}
+                  onChange={handleChangeimg}
                 />
 
               </div>

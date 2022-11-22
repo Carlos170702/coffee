@@ -40,7 +40,7 @@ export const NavBar = () => {
                 }
                 <ul className={`coffee__links data ${active && 'active'}`}>
                     <Link className="coffee__link coffee__link__profile" to={"/profile"}>
-                        <img className='coffee__links__img' src={user.image} alt={`imagen de ${user.name}`} />
+                        <img className='coffee__links__img' src={user?.image} alt={`imagen de ${user?.name}`} />
                         {user?.name?.toUpperCase()}
                     </Link>
                     <Link className="coffee__link" to={"/Menu"}>Menu</Link>

@@ -29,4 +29,6 @@ export const apiUpdatedProduct = async (id, token, dato) => {
     headers: token,
     data: dato,
   });
+
+  return data;
 };

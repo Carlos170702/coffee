@@ -24,7 +24,7 @@ export const CarCoffee = ({ product, onclickAdd }) => {
           >{`${stock > 0
             ? 'Disponible:'
             : 'No disponible:'}`}
-            <span>{stock}</span>
+            <span>{stock} KG</span>
           </p>
           <p className='productPrice'>Precio: <span>{`$${price}.00`}</span></p>
         </div>

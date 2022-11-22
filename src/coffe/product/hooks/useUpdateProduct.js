@@ -4,7 +4,10 @@ import { apiUpdatedProduct } from "../controller/apiProduct";
 import { useForm } from "./useForm";
 
 export const useUpdateProduct = () => {
-  const { updateProduct, updateProductPage } = useContext(UserContext);
+  const { updateProduct, updateProductPage, getCoffes } =
+    useContext(UserContext);
+  const { data } = updateProduct;
+
   const { formState, onInputChange } = useForm({
     name: "",
     stock: "",
@@ -28,41 +31,48 @@ export const useUpdateProduct = () => {
   //peticion a apiUpdatedProduct
   const makeUpdateProduct = async (e, id) => {
     e.preventDefault();
-    const { name, stock, price, description } = formState;
-    const token = localStorage.getItem("user");
     setIsLoading(true);
-    const headersList = { "x-token": JSON.parse(token) };
+    //body
     var formdata = new FormData();
-    formdata.append("file", file ? file : {});
-    formdata.append("name", name);
-    formdata.append("price", price);
-    formdata.append("category", "631ab538a93c78947cd00f4c");
-    formdata.append("stock", stock);
-    formdata.append("description", description);
+    formdata.append(
+      "name",
+      formState?.name === "" ? data?.name : formState?.name
+    );
+    formdata.append("file", file ? file : null);
+    formdata.append(
+      "price",
+      formState?.price === "" ? data?.price : formState?.price
+    );
+    formdata.append(
+      "description",
+      formState?.description === "" ? data?.description : formState?.description
+    );
+    formdata.append(
+      "stock",
+      formState?.stock === "" ? data?.stock : formState?.stock
+    );
+    //header
+    const token = localStorage.getItem("user");
+    const headersList = { "x-token": JSON.parse(token) };
 
     try {
-      const { status } = await apiUpdatedProduct(id, headersList, formdata);
-      console.log(status);
-      // status === true && getCoffes();
-      // status === true && handleActive();
+      const data = await apiUpdatedProduct(id, headersList, formdata);
+      data.status && getCoffes();
+      data.status &&
+        setTimeout(() => {
+          setIsLoading(false);
+          updateProductPage();
+        }, 2000);
     } catch (e) {
-      console.log(e);
-      //   setIsLoading(false);
-      //   setInfError({
-      //     titulo: "Error al crear producto",
-      //     message: e?.response?.data?.err.errors,
-      //   });
-
-      //   setError(true);
-      //   setTimeout(() => {
-      //     setError(false);
-      //     setInfError(null);
-      //   }, 3000);
-      // }
+      setIsLoading(false);
+      setError(e);
     }
   };
 
   return {
+    isLoading,
+    error,
+    infError,
     updateProduct,
     formState,
     updateProductPage,

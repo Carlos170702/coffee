@@ -31,9 +31,10 @@ export const useNewProduct = () => {
   const createNewProduct = async (e, handleActive) => {
     e.preventDefault();
     const { name, stock, price, description } = formState;
-    const token = localStorage.getItem("user");
     setIsLoading(true);
+    const token = localStorage.getItem("user");
     const headersList = { "x-token": JSON.parse(token) };
+    
     var formdata = new FormData();
     formdata.append("file", file ? file : {});
     formdata.append("name", name);

@@ -1,71 +1,68 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "../../coffe/product/hooks/useForm";
 import { datos, registered } from '../controller'
 
 export const useFormRegister = () => {
   const navigate = useNavigate();
 
-  const [password, setPasword] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("")
-  const [image, setImage] = useState(null)
+  const [message, setMessage] = useState(null)
+  const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleChangeDatas = (e) => {
-    switch (e.target.name) {
-      case "name":
-        setName(e.target.value);
-        break;
+  const { formState, onInputChange } = useForm({
+    name: '',
+    email: '',
+    password: ''
+  })
 
-      case "email":
-        setEmail(e.target.value);
-        break;
+  const handleChangeimg = (e) => {
+    setImage(e.target.files[0])
+  }
 
-      case "password":
-        setPasword(e.target.value);
-        break;
-
-      case "image":
-        setImage(e.target.files);
-        break;
-
-      default:
-        break;
-    }
-  };
 
   const handleRegister = async (e) => {
+    setIsLoading(true)
     e.preventDefault();
-    try {
-      const { status } = await registered({ image, name, password, email, rol: "client" })
+    var formdata = new FormData();
+    formdata.append("name", formState?.name);
+    formdata.append("email", formState?.email);
+    formdata.append("password", formState?.password);
+    formdata.append("file", image);
+    formdata.append("rol", "client");
 
-      if (status) {
+    try {
+      const response = await registered(formdata)
+      console.log(response)
+
+      if (response?.status) {
         const { token } = await datos({
-          email,
-          password,
+          email: formState?.email,
+          password: formState?.password,
         })
         if (token) {
-          localStorage.setItem('user', JSON.stringify(token))
-          navigate('coffee')
+          setTimeout(() => {
+            setIsLoading(false)
+            localStorage.setItem('user', JSON.stringify(token))
+            navigate('coffee')
+          }, 2000);
         }
       }
-    } catch (error) {
-      setMessage(error.response.data.err.errors[0].msg)
+    } catch (e) {
+      setMessage(e.response.data.err.errors[0].msg)
       setTimeout(() => {
+        setIsLoading(false)
         setMessage("")
-        setName("")
-        setEmail("")
-        setPasword("")
       }, 1500);
     }
   }
 
   return {
+    isLoading,
     message,
-    password,
-    name,
-    email,
-    handleChangeDatas,
+    ...formState,
+    onInputChange,
     handleRegister,
+    handleChangeimg
   };
 };
