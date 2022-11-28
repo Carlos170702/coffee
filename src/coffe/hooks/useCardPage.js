@@ -39,7 +39,7 @@ export const useCardPage = () => {
     setTimeout(() => {
       setStatus(!status);
       deleteAllProducts();
-    }, 3000);
+    }, 1500);
   };
 
   return {

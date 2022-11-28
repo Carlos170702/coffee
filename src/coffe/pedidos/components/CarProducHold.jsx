@@ -9,13 +9,14 @@ import "./css/carproducthold.css"
 
 export const CarProducHold = ({ data }) => {
     const { user, handleConfirmSale, handleDeleteSale } = useCarProductHold()
-    const { client, date, finish, id, products, totalToPay } = data
+    const { client, date, finish, id, products, totalToPay } = data;
+    console.log(products)
 
     return (
         <>
             {
                 user?.rol === 'administrador'
-                    ? <div className="ProductsOnHold">
+                    ? <div className="ProductsOnHold animate__animated animate__fadeInDown">
                         <div className="holdOn__information">
                             <h2>Informacion</h2>
                             <div className="holdOninf">
@@ -33,13 +34,20 @@ export const CarProducHold = ({ data }) => {
                                     <h2>Informacion pedido</h2>
                                     <h3>Fecha: <span>{date.split("T")[0]}</span></h3>
                                     <h3>codigo: <span>{id}</span></h3>
-                                    <h3 className="holdOninf__personal__data__confirmado">confirmado: <span
+                                    <h3 className="holdOninf__personal__data__confirmado">Estado: <span
                                         className={`${finish
                                             ? 'success'
                                             : 'denied'}`} >
                                         {finish
-                                            ? <FiCheck />
-                                            : <FiX />}
+                                            ? <>
+                                                confirmado
+                                                <FiCheck />
+                                            </>
+                                            :
+                                            <>
+                                                Por Confirmar
+                                                <FiX />
+                                            </>}
                                     </span></h3>
                                     <h3>Total: <span>{`$${totalToPay}.00 MX`}</span></h3>
                                 </div>

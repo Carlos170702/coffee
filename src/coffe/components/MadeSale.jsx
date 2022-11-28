@@ -6,7 +6,7 @@ export const MadeSale = ({ data }) => {
     return (
         <>
             <div className="madeSale">
-                <div className="madeSale__Content">
+                <div className="madeSale__Content animate__animated animate__backInDown">
                     <h3 className='madeSale__titulo'>Venta realzada {<FiCheck className='icon' />}</h3>
                     <div className='InfProduct'>
                         <h4>{msg}</h4>

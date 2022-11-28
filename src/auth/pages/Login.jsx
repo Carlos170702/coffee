@@ -10,10 +10,10 @@ export const Login = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <div className="container login">
         <div className="login__data">
-          <form className="login__form">
-            {loading && <Loading />}
+          <form className="login__form animate__animated animate__jackInTheBox">
             <div className="login__img">
               <img src="https://static.vecteezy.com/system/resources/previews/000/585/220/non_2x/coffee-cup-logo-template-vector-icon-design.jpg" alt="imagen de cafe" />
             </div>

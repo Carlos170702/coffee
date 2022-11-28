@@ -10,7 +10,7 @@ export const CarCoffee = ({ product, onclickAdd }) => {
 
   return (
     <>
-      <div className="card__coffees">
+      <div className="card__coffees animate__animated animate__jackInTheBox">
         <div className='card__Coffee'>
           <img className='img' src={image || 'https://tse4.mm.bing.net/th?id=OIP.MZaSnoQ_5jL33CM8yggKIAHaF7&pid=Api&P=0'} alt="" />
         </div>

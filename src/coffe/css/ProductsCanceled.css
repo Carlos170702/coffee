@@ -1,0 +1,7 @@
+.canceled{
+    width: min(90%, 1200px);
+    margin: auto;
+    background-color: antiquewhite;
+    height: 500px;
+    margin-top: 30px;
+}

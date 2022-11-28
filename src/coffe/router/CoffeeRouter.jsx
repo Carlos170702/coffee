@@ -6,6 +6,7 @@ import { InitialState } from '../context/products/InitialState'
 import { ProductsOnHold } from "../pedidos/pages/ProductsOnHold"
 import { CrudProducts } from "../product/pages/CrudProducts"
 import { Profile } from "../page/Profile"
+import { ProductsCanceled } from "../page/ProductsCanceled"
 
 export const CoffeeRouter = () => {
   return (
@@ -32,6 +33,10 @@ export const CoffeeRouter = () => {
 
         < Route path="profile" element={
           <Profile />
+        } />
+
+        < Route path="canceled" element={
+          <ProductsCanceled />
         } />
 
         <Route path="/*" element={<Navigate to='coffee' />} />

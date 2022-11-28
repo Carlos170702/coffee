@@ -19,7 +19,7 @@ export const CarProduct = ({ data }) => {
 
     return (
         <>
-            <div className="carProducts">
+            <div className="carProducts animate__animated animate__fadeInDown">
                 <div className="carProducts__image">
                     <img src={data.image} alt="" />
                 </div>

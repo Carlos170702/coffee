@@ -18,7 +18,7 @@ export const CardPage = () => {
             <div className="carpage">
                 <p className="carAdded">Tiene <span>{car.length}</span> productos en el carrito de compras:</p>
                 {
-                    status && <MadeSale data={dataProduct} />
+                    status && <MadeSale  data={dataProduct} />
                 }
                 {
                     car.length > 0

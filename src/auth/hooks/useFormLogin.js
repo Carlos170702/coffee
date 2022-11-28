@@ -17,6 +17,7 @@ export const useFormLogin = () => {
   }
 
   const handleLogin = (e) => {
+    setLoading(true)
     e.preventDefault();
     setTimeout(async () => {
       try {
@@ -24,16 +25,24 @@ export const useFormLogin = () => {
           email,
           password,
         })
-        if (token) {
-          localStorage.setItem('user', JSON.stringify(token))
-          navigate('coffee')
-        }
+
+        token
+          ? setTimeout(() => {
+            setLoading(false);
+            localStorage.setItem('user', JSON.stringify(token));
+            navigate('coffee');
+          }, 2000)
+          : setTimeout(() => {
+            setLoading(false);
+          }, 2000);
+
       } catch (e) {
-        setEmail('')
-        setPasword('')
-        setMessage(e.response.data?.msg === undefined ? e.response.data?.err.errors[0].msg : e.response.data?.msg)
+        setLoading(false);
+        setEmail('');
+        setPasword('');
+        setMessage(e.response.data?.msg === undefined ? e.response.data?.err.errors[0].msg : e.response.data?.msg);
         setTimeout(() => {
-          setMessage()
+          setMessage();
         }, 3000);
       }
     }, 100);

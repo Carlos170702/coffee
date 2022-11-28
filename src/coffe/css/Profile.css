@@ -99,6 +99,18 @@
   margin: auto;
 }
 
+.profile__inf--canceled{
+  grid-column: 1/3;
+}
+
+.profile__proCanceled{
+  color: blue;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 620px){
     .profile__data{
         grid-template-columns: 1fr;

@@ -1,7 +1,9 @@
 //components
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { NavBar } from "../components"
 import { UserContext } from "../context/products/UserContext"
+import { FiChevronRight} from 'react-icons/fi';
 
 //css
 import '../css/Profile.css'
@@ -12,7 +14,7 @@ export const Profile = () => {
     return (
         <>
             <NavBar />
-            <div className="profile" >
+            <div className="profile animate__animated animate__bounce" >
                 <div className="profile__titulo">
                     <h2 className="">Datos de usuario</h2>
                 </div>
@@ -36,7 +38,11 @@ export const Profile = () => {
                                 </span>
                             </p>
                         </div>
+                        <div className="profile__inf profile__inf--canceled">
+                            <p>Productos cancelados: <Link className="profile__proCanceled" to={'/canceled'}>Ver <FiChevronRight /> </Link></p>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </>
