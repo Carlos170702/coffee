@@ -14,7 +14,7 @@ export const CarProduct = ({ data }) => {
         { name: 'Precio', about: `$${price}.00` },
         { name: 'Categoria', about: category.name },
         { name: 'Stock', about: `${stock} KG` },
-        { name: 'Descripsion', about: description },
+        { name: 'Descripción', about: description },
     ]
 
     return (

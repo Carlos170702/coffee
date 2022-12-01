@@ -38,9 +38,9 @@ export const Profile = () => {
                                 </span>
                             </p>
                         </div>
-                        <div className="profile__inf profile__inf--canceled">
+                        {/* <div className="profile__inf profile__inf--canceled">
                             <p>Productos cancelados: <Link className="profile__proCanceled" to={'/canceled'}>Ver <FiChevronRight /> </Link></p>
-                        </div>
+                        </div> */}
                     </div>
                     
                 </div>

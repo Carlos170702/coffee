@@ -2,7 +2,7 @@ import { FiShoppingCart } from 'react-icons/fi'
 import './css/carCoffee.css'
 
 export const CarCoffee = ({ product, onclickAdd }) => {
-  const { stock, _id, image, name, price } = product;
+  const { stock, _id, image, name, price, description } = product;
 
   const hanldeClick = () => {
     onclickAdd(product._id)
@@ -12,6 +12,9 @@ export const CarCoffee = ({ product, onclickAdd }) => {
     <>
       <div className="card__coffees animate__animated animate__jackInTheBox">
         <div className='card__Coffee'>
+          <div className='card__description animate__bounceInLeft animate__bounceInLeft'>
+            <p>{description}</p>
+          </div>
           <img className='img' src={image || 'https://tse4.mm.bing.net/th?id=OIP.MZaSnoQ_5jL33CM8yggKIAHaF7&pid=Api&P=0'} alt="" />
         </div>
 

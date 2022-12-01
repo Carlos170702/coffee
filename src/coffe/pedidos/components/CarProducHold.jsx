@@ -18,22 +18,22 @@ export const CarProducHold = ({ data }) => {
                 user?.rol === 'administrador'
                     ? <div className="ProductsOnHold animate__animated animate__fadeInDown">
                         <div className="holdOn__information">
-                            <h2>Informacion</h2>
+                            <h2>Información</h2>
                             <div className="holdOninf">
                                 <div className="holdOninf__personal">
                                     <div className="holdOninf__personal__img">
                                         <img src={client?.image} alt="imagen de perfil" />
                                     </div>
                                     <div className="holdOninf__personal__data holdOninf__personal__data__user">
-                                        <h3>Name: <span>{client?.name}</span></h3>
+                                        <h3>Nombre: <span>{client?.name}</span></h3>
                                         <h3>Correo: <span>{client?.email}</span></h3>
-                                        <h3>Roll: <span>{client?.rol}</span></h3>
+                                        <h3>Rol: <span>{client?.rol}</span></h3>
                                     </div>
                                 </div>
                                 <div className="holdOninf__personal__data">
                                     <h2>Informacion pedido</h2>
                                     <h3>Fecha: <span>{date.split("T")[0]}</span></h3>
-                                    <h3>codigo: <span>{id}</span></h3>
+                                    <h3>Numero de pedido: <span>{id}</span></h3>
                                     <h3 className="holdOninf__personal__data__confirmado">Estado: <span
                                         className={`${finish
                                             ? 'success'

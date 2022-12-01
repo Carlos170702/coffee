@@ -12,7 +12,7 @@ export const CarDataPedido = ({ infProduct }) => {
     return (
         <>
             <div className="holdOninf__pedido holdOninf__personal__data holdOninf__personal__data--pedidos">
-                <h3>Name: <span>{data?.productById?.name} </span></h3>
+                <h3>Nombre de producto: <span>{data?.productById?.name} </span></h3>
                 <h3>Precio: <span> ${data?.productById?.price}.00 MX</span></h3>
                 <h3>Categoria: <span>{data?.productById?.category.name}</span></h3>
                 <h3>Cantidad: <span>{quantity} KG</span></h3>
